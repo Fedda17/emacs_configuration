@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/content_credentials_lead_3-800x450.jpg" alt="The Content Credentials logo in front of a penguin desert background.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/content_credentials_lead_3.jpg" class="enlarge-link" data-height="675" data-width="1200">Enlarge</a> <span class="sep">/</span> The Content Credentials "CR" logo presented in front of an AI-generated image provided by Adobe. (credit: Adobe)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>On Tuesday, Adobe <a href="https://blog.adobe.com/en/publish/2023/10/10/new-content-credentials-icon-transparency">announced</a> a new symbol designed to indicate when content has been generated or altered using AI tools, reports <a href="https://www.theverge.com/2023/10/10/23911381/adobe-ai-generated-content-symbol-watermark">The Verge</a>, as well as verifying the provenance of non-AI media. The symbol, created in collaboration with other industry players as part of the <a href="https://c2pa.org/">Coalition for Content Provenance and Authenticity</a> (C2PA), aims to bring transparency to media creation and reduce the impact of misinformation or deepfakes online. Whether it will actually do so in practice is uncertain.</p>
+
+<p>The <a href="https://contentcredentials.org/">Content Credentials</a> symbol, which looks like a lowercase "CR" in a curved bubble with a right angle in the lower-right corner, reflects the presence of <a href="https://en.wikipedia.org/wiki/Metadata">metadata</a> stored in a PDF, photo, or video file that includes information about the content's origin and the tools (both AI and conventional) used in its creation. The information is automatically added by <a href="https://www.nikon.com/company/news/2022/1019_exhibition_01.html">supporting digital cameras</a> and AI image generator <a href="https://arstechnica.com/information-technology/2023/10/adobes-ai-image-generators-get-beefy-updates-including-vector-graphics/">Adobe Firefly</a>, or it can be inserted by Photoshop and Premiere. It will also soon be supported by Bing Image Creator.</p>
+<p>If credentialed media is presented in a compatible app or using a JavaScript wrapper on the web, users <a href="https://contentcredentials.org/">click</a> the "CR" icon in the upper-right corner to view a drop-down menu containing image information. Or they can upload a file to a <a href="https://contentcredentials.org/verify">special website</a> to read the metadata.</p></div><p><a href="https://arstechnica.com/?p=1975166#p3">Read 10 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1975166&comments=1">Comments</a></p>

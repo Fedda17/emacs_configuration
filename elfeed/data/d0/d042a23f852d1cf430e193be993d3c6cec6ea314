@@ -1,0 +1,24 @@
+<p>[Equations in this post may not look right (or appear at all) in your RSS reader. Go to <a href="https://leancrew.com/all-this/2023/09/a-football-score-matrix/">the original article</a> to see them rendered properly.]</p>
+  <hr />
+  <p>John Cook posted <a href="https://www.johndcook.com/blog/2023/09/11/nfl-scores/">a fun article</a> today about the all the possible football scores. The key is to recognize that a team’s score can be any non-negative integer other than one.<sup id="fnref:one"><a href="#fn:one" rel="footnote">1</a></sup> If the most points a team can score is <em>M</em>, then Cook’s reasoning is</p>
+<blockquote>
+<p>Out of the M² pairs of two numbers coming from a set [of]  M numbers, M of these pairs are tied, and in half of the rest the first number is higher than the second. So the number of possible scores, with each score bounded by M, is</p>
+<p>M + (M² − M)/2 = M(M + 1)/2.</p>
+<p>If M = 73 [the most points scored by a team in NFL history], there are 2,701 possible scores.</p>
+</blockquote>
+<p>[Note that there are <em>M</em> possible scores even though 1 is impossible because 0 <em>is</em> possible.]</p>
+<p>This is sound logic, but it isn’t how I would solve the problem. My first thought was to arrange the scores in an <em>M</em>×<em>M</em> matrix, with the columns representing the score of the winning (or tying) team and the rows representing the losing (or tying) team. Putting a checkmark at every possible score position and leaving the other positions blank (because the L team can’t score more than the W team), we get an upper triangular matrix:</p>
+<p><img alt="Matrix of possible scores" class="ss" src="https://leancrew.com/all-this/images2023/20230911-Matrix%20of%20possible%20scores.png" title="Matrix of possible scores" width="80%"/></p>
+<p>This visual approach came to me because I’ve spent a lot of time dealing with upper (and lower) triangular matrices, and I don’t have to think much to come up with the formula for the number of nonzero terms:</p>
+<math display="block"><semantics><mrow><mfrac><mrow><mi>M</mi><mo stretchy="false">(</mo><mi>M</mi><mo>+</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mrow><mn>2</mn></mrow></mfrac></mrow><annotation>\frac{M (M + 1)}{2}</annotation></semantics></math>
+<p>You may recognize this as <a href="https://nrich.maths.org/2478">Gauss’s smartass formula</a> for summing the first <em>M</em> natural numbers.</p>
+<p>By the way, Cook was inspired to look into this problem by his Texans losing to the Ravens 25–9, a score that, improbably enough, <a href="https://twitter.com/nfl_scorigami/status/1700972299787051130">had never happened before</a>.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:one">
+<p>OK, there <em>is</em> a way for a team to score one point under the <a href="https://www.youtube.com/watch?v=9l5C8cGMueY">one-point safety rule</a>, but we’re going to follow Cook’s argument and ignore that rule. <a href="#fnref:one" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+  

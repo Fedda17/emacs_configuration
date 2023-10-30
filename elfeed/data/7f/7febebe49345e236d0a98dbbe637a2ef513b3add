@@ -1,0 +1,18 @@
+<p>Many years ago, I wrote about <a href="https://leancrew.com/all-this/2012/07/friday-the-13th-frequency/">how many Friday the 13ths</a> you can have in a year. At some point in the intervening decade, I read that the 13th of the month occurs more often on Friday than any other weekday, but I never checked up on it. This morning I did.</p>
+<p>As in <a href="https://leancrew.com/all-this/2023/10/weekdays-with-pope-gregory/">my last post</a>, I fired up Mathematica to do a brute force solution. I generated a list of the weekdays associated with the 13th of every month over a 400-year Gregorian calendar cycle:</p>
+<pre><code>f13 = Flatten[
+       Table[
+         DateValue[
+           DateObject[{y, m, 13}],
+           "ISOWeekDay"],
+         {y, 1801,2200},
+         {m, 1, 12}]]
+</code></pre>
+<p>The <code>Table</code> command makes a nested list of weekday values of every month of every year from 1801 through 2200 (any 400-year period would do). <code>Flatten</code> then flattens it into a single list of 4800 values. With this list, we can get the counts of each weekday:</p>
+<pre><code>KeySort[Counts[f13]]
+</code></pre>
+<p>The results are</p>
+<pre><code>&lt;|1 -&gt; 685, 2 -&gt; 685, 3 -&gt; 687, 4 -&gt; 684,
+  5 -&gt; 688, 6 -&gt; 684, 7 -&gt; 687|&gt;
+</code></pre>
+<p>You may recall from last time that the ISOWeekDay values are 1 for Monday through 7 for Sunday. So 13ths are ever-so-slightly more likely to fall on a Friday (5) than on any other weekday.</p>

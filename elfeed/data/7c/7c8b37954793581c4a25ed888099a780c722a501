@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/androidstb-800x533.jpg" alt="abstract image">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/androidstb.jpg" class="enlarge-link" data-height="1493" data-width="2240">Enlarge</a> (credit: gremlin via Getty Images)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>When you buy a <a href="https://www.wired.com/gallery/best-4k-streaming-devices/">TV streaming box</a>, there are certain things you wouldn’t expect it to do. It shouldn’t secretly be laced with malware or start communicating with servers in China when it’s powered up. It definitely should not be acting as a node in an organized crime scheme making millions of dollars through fraud. However, that’s been the reality for thousands of unknowing people who own cheap Android TV devices.</p>
+<p>In January, security researcher <a href="https://github.com/DesktopECHO/T95-H616-Malware/tree/main">Daniel Milisic discovered</a> that a cheap Android TV streaming box called the T95 was infected with malware right out of the box, with <a href="https://www.malwarebytes.com/blog/news/2023/01/preinstalled-malware-infested-t95-tv-box-from-amazon">multiple</a> <a href="https://www.eff.org/deeplinks/2023/05/android-tv-boxes-sold-amazon-come-pre-loaded-malware">other</a> <a href="https://www.trendmicro.com/en_us/research/23/e/lemon-group-cybercriminal-businesses-built-on-preinfected-devices.html">researchers</a> confirming the findings. But it was just the tip of the iceberg. This week, cybersecurity firm <a href="https://www.humansecurity.com/learn/resources/trojans-all-the-way-down-badbox-and-peachpit">Human Security is revealing new details</a> about the scope of the infected devices and the hidden, interconnected web of fraud schemes linked to the streaming boxes.</p>
+<p></p></div><p><a href="https://arstechnica.com/?p=1974179#p3">Read 16 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1974179&comments=1">Comments</a></p>

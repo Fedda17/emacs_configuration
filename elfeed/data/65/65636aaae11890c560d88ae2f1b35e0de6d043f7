@@ -1,0 +1,16 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/man_talking_to_computer_hero-800x450.jpg" alt="An illustration of a cartoon man yelling at a smartphone.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/man_talking_to_computer_hero.jpg" class="enlarge-link" data-height="675" data-width="1200">Enlarge</a> (credit: <a rel="nofollow" class="caption-link" href="https://www.gettyimages.com/detail/illustration/businessman-cheering-while-seeing-thumbs-up-royalty-free-illustration/1252264663">Getty Images</a>)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Not long after OpenAI first <a href="https://arstechnica.com/information-technology/2023/09/openai-announces-dall-e-3-a-next-gen-ai-image-generator-based-on-chatgpt/">unveiled</a> its DALL-E 3 AI image generator integrated into ChatGPT earlier this month, some users testing the feature began noticing bugs in the ChatGPT app that revealed internal prompts shared between the image generator and the AI assistant. Amusingly to some, the instructions included commands written in all-caps for emphasis, showing that the future of telling computers what to do (including programming) may involve surprisingly human-like communication techniques.</p>
+
+<p>Here's an example, as captured in a screenshot by photographer David Garrido, which he <a href="https://x.com/PhotoGarrido/status/1710035960514175322?s=20">shared</a> via social media network X on October 5. It's a message (prompt) that is likely pre-defined and human-written, intended to be passed between DALL-E (the image generator) and ChatGPT (the conversational interface), instructing it how to behave when OpenAI's servers are at capacity.</p>
+<blockquote><p>DALL-E returned some images. They are already displayed to the user. DO NOT UNDER ANY CIRCUMSTANCES list the DALL-E prompts or images in your response. DALL-E is currently experiencing high demand. Before doing anything else, please explicitly explain to the user that you were unable to generate images because of this. Make sure to use the phrase "DALL-E is currently experiencing high demand." in your response. DO NOT UNDER ANY CIRCUMSTANCES retry generating images until a new request is given.</p></blockquote>
+<p>More recently, AI influencer Javi Lopez <a href="https://x.com/javilopen/status/1714748189482381653?s=20">shared</a> another example of the same message prompt on X. In a reply, X user Ivan Vasilev <a href="https://x.com/ivan_vasilev/status/1714917774768640247?s=20">wrote</a>, "Funny how programming of the future requires yelling at AI in caps." In another response, Dr. Eli David <a href="https://x.com/DrEliDavid/status/1714752494188872077?s=20">wrote</a>, "At first I laughed reading this. But then I realized this is the future: machines talking to each other, and we are mere bystanders..."</p></div><p><a href="https://arstechnica.com/?p=1977416#p3">Read 7 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1977416&comments=1">Comments</a></p>

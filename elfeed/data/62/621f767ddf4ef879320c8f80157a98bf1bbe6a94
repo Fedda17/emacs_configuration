@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/GettyImages-1098372664-800x608.jpg" alt="Red fox eyes up a flying bug">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/GettyImages-1098372664-scaled.jpg" class="enlarge-link" data-height="1945" data-width="2560">Enlarge</a> <span class="sep">/</span> Some bugs are just perennially out of reach. (We are aware this is not a red panda, but we lack for images illustrating such a creature being lightly annoyed by a particular kind of insect). (credit: Getty Images)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Back in June 2002, Ubuntu founder <a href="https://en.wikipedia.org/wiki/Soyuz_TM-34">Mark Shuttleworth was experiencing space</a> for the first time, the Department of Justice's antitrust case against Microsoft was <a href="https://archive.arstechnica.com/archive/news/1024533247.html">reaching its final arguments</a>, and Adam Price, using what was then called Mozilla on a Mac, had <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=148624">an issue with persistent tooltips</a>.</p>
+<p>"If I mouseover a toolbar link, and wait for a second, a little yellow box with the description of the link appears. If I now use command-tab to move Mozilla to the background, the little yellow box stays there, in the foreground. The only way to get rid of it is to put mozilla in the foreground again, and move the mouse off the toolbar," Price wrote on June 2. There were a few other bugs related to this issue, but Price set down a reproducible issue, confirmed by many others in the weeks to come—and months to come, years to come, and more than two decades to come.</p>
+<div class="image shortcode-img center full"><img alt="Firefox tooltip lingering over an Applications window in Mac OS X, captured 12 years ago." src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/tooltip2.jpg"><p class="caption" style="font-size:0.8em">Firefox tooltip lingering over an Applications window in Mac OS X, captured 12 years ago. (credit: <a rel="nofollow" class="caption-link" href="https://bugzilla.mozilla.org/attachment.cgi?id=548429&amp;action=edit">edrazaba / Mozilla</a>)</p></div>
+<p>Over the years, people would check in on the thread or mark other bugs as duplicates of this one issue. It would occasionally seem fixed, only for coders and commenters to discover that it was just a little <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=148624#c31">different in different versions</a> or that prior fixes were seemingly accidental. Sometimes it seemed to appear in Windows or Linux, too. One commenter, denis, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=148624#c42">noted that at the 21-year mark</a>: "I'm kinda partial to let it be forever. It feels like a relic from the past."</p></div><p><a href="https://arstechnica.com/?p=1974726#p3">Read 11 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1974726&comments=1">Comments</a></p>

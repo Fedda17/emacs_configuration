@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/newsroom-intel-arc-a580-800x450.jpg" alt="Intel's Alchemist GPU silicon, the heart of the Arc A750, A770, and now, the A580.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/newsroom-intel-arc-a580-scaled.jpg" class="enlarge-link" data-height="1440" data-width="2560">Enlarge</a> <span class="sep">/</span> Intel's Alchemist GPU silicon, the heart of the Arc A750, A770, and now, the A580. (credit: Intel)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Intel's Arc GPUs aren't bad for what they are, but a relatively late launch and driver problems meant that the company had to curtail its ambitions quite a bit. Early leaks and rumors that suggested a GeForce RTX 3080 Ti or RTX 3070 level of performance for the top-end Arc card never panned out, and the best Arc cards can usually only compete with $300-and-under midrange GPUs from AMD and Nvidia.</p>
+<p>Today Intel is quietly releasing another GPU into that same midrange milieu, <a href="https://www.intel.com/content/www/us/en/newsroom/news/intel-arc-a580-graphics-available-worldwide.html#gs.67tjji">the Arc A580</a>. Priced starting at $179, the card aims to compete with lower-end last-gen GPUs like the Nvidia GeForce RTX 3050 or AMD Radeon RX 6600, cards currently available for around $200 that aim to provide a solid 1080p gaming experience (though sometimes with a setting or two turned down for newer and more demanding games).</p>
+
+<p>The A580 is based on the exact same Alchemist silicon as <a href="https://arstechnica.com/gadgets/2022/10/intel-a770-a750-review-strong-gpu-alternatives-that-we-very-nearly-recommend/">the Arc A750 and A770</a>, but with just 24 of the Xe graphics cores enabled, instead of 28 for the A750 and 32 for the A770. That does mean it has the exact same 256-bit memory bus as those higher-end cards, attached to a serviceable-for-the-price 8GB pool of GDDR6 RAM. Reviews from <a href="https://www.tomshardware.com/reviews/intel-arc-a580-review-a-new-budget-contender/5">outlets like Tom's Hardware</a> generally show the A580 beating the RTX 3050 and RX 6600 in most games, but falling a little short of the RTX 3060 and <a href="https://arstechnica.com/gadgets/2023/05/review-amds-269-rx-7600-is-a-good-1080p-card-but-the-rtx-4060-looms/">RX 7600</a> (to say nothing of the <a href="https://arstechnica.com/gadgets/2023/06/geforce-rtx-4060-review-not-thrilling-but-a-super-efficient-299-workhorse/">RTX 4060</a>, which beats the Arc A750 and A770 in most games).</p></div><p><a href="https://arstechnica.com/?p=1974720#p3">Read 4 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1974720&comments=1">Comments</a></p>

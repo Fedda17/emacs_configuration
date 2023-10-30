@@ -1,0 +1,92 @@
+<p>Generally speaking, I dislike writing shell scripts. The operators are cryptic (yes, I’ve enjoyed writing Perl), whitespace matters way more than it should (yes, I’ve enjoyed writing Python), and I just always feel I’m one step away from disaster. A lot of my scripts start out as shell scripts but get changed into Perl or Python once they get more than a few lines long. The script we’ll discuss below is an exception.</p>
+<p>I wanted a script to help me print out blank monthly calendars. The program I’ve always used for this is <a href="https://pcal.sourceforge.net/"><code>pcal</code></a>, which is pretty easy to use. For example,</p>
+<pre><code>pcal -e -S 10 2023 3
+</code></pre>
+<p>will create a three monthly calendars starting with this coming October. The <code>-e</code> option tell <code>pcal</code> to make empty calendars,<sup id="fnref:dot"><a href="#fn:dot" rel="footnote">1</a></sup> and the <code>-S</code> tells it not to include mini-calendars for the preceding and succeeding months.<sup id="fnref:ee"><a href="#fn:ee" rel="footnote">2</a></sup> The result looks like this:</p>
+<p><img alt="Blank October calendar" class="ss" src="https://leancrew.com/all-this/images2023/20230916-Blank%20October%20calendar.png" title="Blank October calendar" width="80%"/></p>
+<p>The thing about <code>pcal</code> is that the <em>p</em> stands for <em>PostScript</em>, a great file format but one that’s been superseded<sup id="fnref:e"><a href="#fn:e" rel="footnote">3</a></sup> by PDF. So to get <code>pcal</code>’s output into a more modern format, I pipe its output to <a href="https://web.mit.edu/ghostscript/www/Ps2pdf.htm"><code>ps2pdf</code></a>:</p>
+<pre><code>pcal -e -S 10 2023 3 | ps2pdf - -
+</code></pre>
+<p>The first hyphen tells <code>ps2pdf</code> to get the PostScript from standard input and the second hyphen tells it to write the resulting PDF to standard output. Of course, I really don’t want the PDF code spewing out into my Terminal, so I use Apple’s very handy <a href="https://scriptingosx.com/2017/02/the-macos-open-command/"><code>open</code></a> command to pipe it into Preview:</p>
+<pre><code>pcal -e -S 10 2023 3 | ps2pdf -  - | open -f -a Preview
+</code></pre>
+<p>The <code>-f</code> option tells <code>open</code> to take what being piped in through standard input and the <code>-a Preview</code> tells it to open that content in the Preview application.</p>
+<p>This isn’t the most complicated command pipeline in the world, but I have trouble remembering both the <code>-S</code> option and the order of the month, year, and count arguments. So I decided to whip up a quick little shell script to replace my faulty memory.</p>
+<p>You should know first that my main use of this command is to print a few upcoming months for my wife. She’s always preferred paper calendars but decided last December that 2023 would be different, so I didn’t get a 2023 calendar for her for Christmas. Partway through the year, she changed her mind. There’s a lot less selection for calendars in spring, and it would kill her to waste money on a full year when she’d only use eight months, so she asked me to print her a few months at a time.</p>
+<p>My first thought was to make a script that takes just two arguments: the starting month and the number of months—I could have the script figure out the year. That thinking led to this simple script, which I called <code>bcal</code>:</p>
+<pre><code>bash:
+1:  #!/usr/bin/env bash
+2:  
+3:  y=$(date +%Y)
+4:  pcal -e -S $1 $y $2 | ps2pdf -  - | open -f -a Preview
+</code></pre>
+<p>This worked fine, but you’ve probably already seen the problem. What happens at the end of the year, when it’s December and she wants calendars for the first few months of the following year?</p>
+<p>I could use <code>date</code> to get the current month, <code>date +%m</code>, and if it’s 12, add one to <code>$y</code>. But what if I wanted to print out the upcoming January calendar in November? Instead of trying to have the program guess what I wanted, it seemed better for me to tell it what I wanted. That meant adding an option to <code>bcal</code> to let me tell it I wanted next year instead of this year.</p>
+<p>At this point, I was tempted to give up on bash and move to Python. I know how to handle options, dates, and external calls in Python, so the switch would have been fairly easy. But I had an itch to learn how to do options in bash. Couldn’t be too hard, could it?</p>
+<p>It wasn’t. The key command is <a href="https://www.shellscript.sh/examples/getopts/"><code>getopts</code></a>, and it’s easy to find examples of its use. And once I had <code>getopts</code> working, I expanded the script to add a help/usage message and one bit of error handling. Here’s the final version of <code>bcal</code>:</p>
+<pre><code>bash:
+ 1:  #!/usr/bin/env bash
+ 2:  
+ 3:  # Make PDF file with blank calendar starting on month of first argument
+ 4:  # and continuing for second argument months
+ 5:  
+ 6:  usage="Usage: bcal [-n] m c
+ 7:  Arguments:
+ 8:    m  starting month number (defaults to this year)
+ 9:    c  count of months to print
+10:  Option:
+11:    -n  use next year instead of this year"
+12:  
+13:  # Current year
+14:  y=$(date +%Y)
+15:  
+16:  # If user asks for next year (-n), add one to the year
+17:  while getopts "nh" opt; do
+18:    case ${opt} in
+19:      n) y=$((y + 1));;
+20:      h) echo "$usage"; exit 0;;
+21:      ?) echo "$usage"; exit 1;;
+22:    esac
+23:  done
+24:  
+25:  # Skip over any options to the required arguments
+26:  shift $(($OPTIND - 1))
+27:  
+28:  # Exit with usage message if there aren't two arguments
+29:  if (($# &lt; 2)); then
+30:    echo "Needs two arguments"
+31:    echo "$usage"
+32:    exit 1
+33:  fi
+34:  
+35:  # Make the calendar, convert to PDF, and open in Preview
+36:  pcal -e -S $1 $y $2 | ps2pdf -  - | open -f -a Preview
+</code></pre>
+<p>Lines 17–23 handle the options. I decided on <code>-n</code> as the option for “next year” and you can see in the <code>case</code> statement that giving that option adds one to the current year. Any other options lead to the usage message and a halt to the script.</p>
+<p>Line 26 uses <code>shift</code> to skip over the options to the required arguments. <code>$OPTIND</code> is the option index, which gets increased by one with each option processed by <code>getopts</code>, so this command makes <code>$1</code> point to the month and <code>$2</code> point to the count, just as if there were no options.</p>
+<p>The error handling in Lines 29–33 is limited to just making sure there are two required arguments. If the arguments are letters or negative numbers, the script will continue through this section and fail in a clumsy way. I’m not especially worried about that because this is a script for me, and I’m unlikely to invoke it as <code>bcal hello world</code>.</p>
+<p>Anyway, now I can get the next three months with</p>
+<pre><code>bcal 10 3
+</code></pre>
+<p>and the first two months of next year with</p>
+<pre><code>bcal -n 1 2
+</code></pre>
+<p>When Preview opens, it shows me a temporary file.</p>
+<p><img alt="Calendar in Preview" class="ss" src="https://leancrew.com/all-this/images2023/20230916-Calendar%20in%20Preview.png" title="Calendar in Preview" width="100%"/></p>
+<p>Usually I just print it out and the temporary file is deleted when I quit Preview. This is the nice thing about piping into <code>open</code>: the script doesn’t create any files that I have to clean up later. But I can save the file if I think there’s a need to.</p>
+<p>I should mention that <code>pcal</code> can be installed through <a href="https://formulae.brew.sh/formula/pcal#default">Homebrew</a>, and <code>ps2pdf</code> is typically installed as part of the Ghostscript suite, which is also in <a href="https://formulae.brew.sh/formula/ghostscript#default">Homebrew</a>.</p>
+<p>Now that I kind of know how to use <code>getopts</code>, I’ll probably extend my shell scripts before bailing out to Perl or Python. I’m not sure that’s a good thing.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:dot">
+<p>By default, <code>pcal</code> looks in your home directory for a file named <code>.calendar</code> and parses it to print entries on the appropriate days. Back when I was a Linux user, this was how I kept track of my calendar. Whenever I added a new entry, I’d print out an updated calendar on the back of a sheet I pulled out of the recycling bin. It worked pretty well in those pre-smartphone days. <a href="#fnref:dot" rev="footnote">↩</a></p>
+</li>
+<li id="fn:ee">
+<p>English has more spelling anomalies than there are stars in the sky, but right now the one that’s bothering me the most is that <em>succeeding</em> has a doubled E and <em>preceding</em> doesn’t. <a href="#fnref:ee" rev="footnote">↩</a></p>
+</li>
+<li id="fn:e">
+<p>No doubled E! <a href="#fnref:e" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>

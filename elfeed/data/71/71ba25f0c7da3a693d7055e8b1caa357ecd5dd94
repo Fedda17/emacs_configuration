@@ -1,0 +1,121 @@
+<p>[Equations in this post may not look right (or appear at all) in your RSS reader. Go to <a href="https://leancrew.com/all-this/2023/09/trump-combinatorics/">the original article</a> to see them rendered properly.]</p>
+  <hr />
+  <p>This afternoon, there will be <a href="https://www.cnn.com/2023/09/06/politics/fulton-county-election-hearing-trump/index.html">a hearing</a> in the Georgia state court case against Donald Trump and his 18 co-defendants. <a href="https://twitter.com/kyledcheney/status/1699143509981151456?s=61&amp;t=QZfh1mvPMhgfet9IwKGB6w">Judge Scott McAfee ordered the hearing yesterday</a> and asked DA Fanni Willis’s office to make</p>
+<blockquote>
+<p>[a] good-faith estimate of the time reasonably anticipated to present the State’s case during a joint trial of all 19 co-defendants, <strong>and alternatively any divisions thereof</strong>, including the number of witnesses likely to be called and the number and size of exhibits likely to be introduced.</p>
+</blockquote>
+<p>Emphasis added because that’s the point of this post.</p>
+<p>Taken at face value, McAfee is asking Willis to make these estimates for a single trial, 19 separate trials, and every possibility in between. Since this is an impossible task because of the monstrous number of trial combinations, we don’t take him at face value. But what if we did? How many different ways could this case be split into separate trials?</p>
+<p>Obviously, there’s just one way to have a single trial of all the defendants and just one way to have 19 trials, each with an individual defendant. Let’s consider the next arrangement on the complication scale: 18 trials. This would mean one trial with 2 defendants and 17 trials with individual defendants. The key to working out this figure is determine the number of ways we can pair 2 defendants from the 19. For that we need the <a href="https://mathworld.wolfram.com/BinomialCoefficient.html">binomial coefficient</a>:</p>
+<math display="block"><semantics><mrow><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo><mo>=</mo><mfrac><mrow><mn>19</mn><mo>!</mo></mrow><mrow><mn>2</mn><mo>!</mo><mspace width="0.167em"></mspace><mn>17</mn><mo>!</mo></mrow></mfrac><mo>=</mo><mn>171</mn></mrow><annotation>\binom{19}{2} = \frac{19!}{2! \, 17!} = 171</annotation></semantics></math>
+<p>The next most complicated arrangement is two trials. For this, we need to consider the nine ways to split up the defendants and the number of combinations associated with each of those splits.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Split of defendants</th>
+<th align="center">Formula</th>
+<th align="right">Count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1 and 18</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{2}</annotation></semantics></math></td>
+<td align="right">19</td>
+</tr>
+<tr>
+<td align="center">2 and 17</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{2}</annotation></semantics></math></td>
+<td align="right">171</td>
+</tr>
+<tr>
+<td align="center">3 and 16</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>3</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{3}</annotation></semantics></math></td>
+<td align="right">969</td>
+</tr>
+<tr>
+<td align="center">4 and 15</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>4</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{4}</annotation></semantics></math></td>
+<td align="right">3,876</td>
+</tr>
+<tr>
+<td align="center">5 and 14</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>5</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{5}</annotation></semantics></math></td>
+<td align="right">11,628</td>
+</tr>
+<tr>
+<td align="center">6 and 13</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>6</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{6}</annotation></semantics></math></td>
+<td align="right">27,132</td>
+</tr>
+<tr>
+<td align="center">7 and 12</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>7</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{7}</annotation></semantics></math></td>
+<td align="right">50,388</td>
+</tr>
+<tr>
+<td align="center">8 and 11</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>8</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{8}</annotation></semantics></math></td>
+<td align="right">75,582</td>
+</tr>
+<tr>
+<td align="center">9 and 10</td>
+<td align="center"><math><semantics><mrow><mstyle displaystyle="true" scriptlevel="0"><mo maxsize="2.047em" minsize="2.047em">(</mo><mfrac linethickness="0"><mrow><mn>19</mn></mrow><mrow><mn>9</mn></mrow></mfrac><mo maxsize="2.047em" minsize="2.047em">)</mo></mstyle></mrow><annotation>\dbinom{19}{9}</annotation></semantics></math></td>
+<td align="right">92,378</td>
+</tr>
+<tr>
+<td align="center"><strong>Total</strong></td>
+<td align="center"></td>
+<td align="right"><strong>262,143</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Two of those numbers should be familiar.</p>
+<p>At this point, I think it’s time to give up on the binomial coefficient. There may be a way to use it to work out the number of ways to have three trials, four trials, and so on up to 17 trials, but I don’t want try it. More powerful tools are available, and we should take advantage of them.</p>
+<p>The <a href="https://mathworld.wolfram.com/StirlingNumberoftheSecondKind.html">Stirling numbers of the second kind</a> are what we need. As the MathWorld article says, they are</p>
+<blockquote>
+<p>[t]he number of ways of partitioning a set of <em>n</em> elements into <em>m</em> nonempty sets…</p>
+</blockquote>
+<p>The key words here are <em>partitioning</em> and <em>nonempty</em>. When we partition a set into subsets, the subsets do not intersect with each other and their union is the original set. Translated to our problem, that means each defendant is in one and only one trial. And the subsets are nonempty because we can’t have a trial with no defendant.</p>
+<p>The Stirling numbers of the second kind are in the <a href="https://oeis.org/A008277">OEIS</a>, but the list on that page doesn’t go up high enough. The tables in <a href="https://www.amazon.com/dp/0486612724">Abramowitz &amp; Stegun</a> do,</p>
+<p><img alt="Abramowitz and Stegun Stirling table" class="ss" src="https://leancrew.com/all-this/images2023/20230906-Abramowitz%20and%20Stegun%20Stirling%20table.jpg" title="Abramowitz and Stegun Stirling table" width="75%"/></p>
+<p>but there’s no way I can enter the numbers for <math><semantics><mrow><mi>n</mi><mo>=</mo><mn>19</mn></mrow><annotation>n = 19</annotation></semantics></math> without making several typos. So let’s fire up Mathematica and use its <a href="https://reference.wolfram.com/language/ref/StirlingS2.html"><code>StirlingS2</code> function</a></p>
+<pre><code>Table[{n, StirlingS2[19, n]}, {n, 1, 19}]
+</code></pre>
+<p>yields</p>
+<pre><code>{{1, 1},
+ {2, 262143},
+ {3, 193448101},
+ {4, 11259666950},
+ {5, 147589284710},
+ {6, 693081601779},
+ {7, 1492924634839},
+ {8, 1709751003480},
+ {9, 1144614626805},
+ {10, 477297033785},
+ {11, 129413217791},
+ {12, 23466951300},
+ {13, 2892439160},
+ {14, 243577530},
+ {15, 13916778},
+ {16, 527136},
+ {17, 12597},
+ {18, 171},
+ {19, 1}}
+</code></pre>
+<p>where the first number in each line is the number of trials and the second is the number of ways to arrange the defendants in that many trials. We see that the values for 1, 2, 18, and 19 trials match what we came up with earlier, and now we have all the others, too. If your eyes are good, you can compare the numbers in the middle to the A&amp;S table.</p>
+<p>To get the total, we run</p>
+<pre><code>Total[Table[StirlingS2[19, n], {n, 1, 19}]]
+</code></pre>
+<p>to get 5,832,742,205,057, or over 5.8 trillion possibilities. I suggest we call this the <em>McAfee number</em>.</p>
+<div class="update">
+<p><strong>Update 7 Sep 2023 1:53 PM</strong><br/>
+Reader Rick Kaye, who has probably forgotten more combinatorics than I’ll ever know, emailed me to point out that the number of ways to partition a set into nonempty subsets is the <a href="https://mathworld.wolfram.com/BellNumber.html">Bell Number</a>. In Mathematica, it’s calculated through the <code>BellB</code> function, so</p>
+<pre><code>BellB[19]
+</code></pre>
+<p>returns 5,832,742,205,057, the same value I got by summing the Stirling numbers of the second kind. You can check this via</p>
+<pre><code>BellB[19] == Total[Table[StirlingS2[19, n], {n, 1, 19}]]
+</code></pre>
+<p>which returns <code>True</code>. Also, the Bell Numbers are <a href="https://oeis.org/A000110">sequence A000110 in the OEIS</a>, where you can look up the value directly. Thanks, Rick!</p>
+</div>
+  

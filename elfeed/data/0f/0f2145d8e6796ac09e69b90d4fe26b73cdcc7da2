@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/ai_windshield_1-800x450.jpg" alt="A dirty windshield with the letters " ai behind it.>
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/ai_windshield_1.jpg" class="enlarge-link" data-height="675" data-width="1200">Enlarge</a> (credit: <a rel="nofollow" class="caption-link" href="https://www.gettyimages.com/detail/photo/portugal-dirty-window-of-car-royalty-free-image/175843804">Getty Images / Benj Edwards</a>)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>On Wednesday, Stanford University researchers <a href="https://hai.stanford.edu/news/introducing-foundation-model-transparency-index">issued</a> a report on major AI models and found them greatly lacking in transparency, <a href="https://www.reuters.com/technology/stanford-researchers-issue-ai-transparency-report-urge-tech-companies-reveal-2023-10-18/">reports</a> Reuters. The report, called "<a href="https://crfm.stanford.edu/fmti/">The Foundation Model Transparency Index</a>," examined models (such as <a href="https://arstechnica.com/information-technology/2023/03/openai-announces-gpt-4-its-next-generation-ai-language-model/">GPT-4</a>) created by OpenAI, Google, Meta, Anthropic, and others. It aims to shed light on the data and human labor used in training the models, calling for increased disclosure from companies.</p>
+<p>Foundation models refer to AI systems trained on large datasets capable of performing tasks, from writing to generating images. They've become key to the rise of generative AI technology, particularly since the launch of <a href="https://arstechnica.com/information-technology/2022/12/openai-invites-everyone-to-test-new-ai-powered-chatbot-with-amusing-results/">OpenAI's ChatGPT</a> in November 2022. As businesses and organizations increasingly incorporate these models into their operations, fine-tuning them for their own needs, the researchers argue that understanding their limitations and biases has become essential.</p>
+
+<p>"Less transparency makes it harder for other businesses to know if they can safely build applications that rely on commercial foundation models; for academics to rely on commercial foundation models for research; for policymakers to design meaningful policies to rein in this powerful technology; and for consumers to understand model limitations or seek redress for harms caused," <a href="https://hai.stanford.edu/news/introducing-foundation-model-transparency-index">writes</a> Stanford in a news release.</p></div><p><a href="https://arstechnica.com/?p=1977869#p3">Read 7 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1977869&comments=1">Comments</a></p>

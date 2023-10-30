@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/image-3-800x450.png" alt="Image of a series of chips on a black background, with one chip labelled " northpole>
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/image-3.png" class="enlarge-link" data-height="608" data-width="1080">Enlarge</a> (credit: <a rel="nofollow" class="caption-link" href="https://research.ibm.com/blog/northpole-ibm-ai-chip">IBM</a>)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>As the utility of AI systems has grown dramatically, so has their energy demand. Training new systems is extremely energy intensive, as it generally requires massive data sets and lots of processor time. Executing a trained system tends to be much less involved—smartphones can easily manage it in some cases. But, because you execute them so many times, that energy use also tends to add up.</p>
+<p>Fortunately, there are lots of ideas on how to bring the latter energy use back down. IBM and Intel have <a href="https://arstechnica.com/science/2014/08/ibm-researchers-make-a-chip-full-of-artificial-neurons/">experimented with processors</a> designed to <a href="https://arstechnica.com/science/2021/09/understanding-neuromorphic-computing-and-why-intels-excited-about-it/">mimic the behavior</a> of actual neurons. IBM has also tested executing neural network calculations <a href="https://arstechnica.com/science/2023/08/ibm-team-builds-low-power-analog-ai-processor/">in phase change memory</a> to avoid making repeated trips to RAM.</p>
+<p>Now, IBM is back with yet another approach, one that's a bit of "none of the above." The company's new NorthPole processor has taken some of the ideas behind all of these approaches and merged them with a very stripped-down approach to running calculations to create a highly power-efficient chip that can efficiently execute inference-based neural networks. For things like image classification or audio transcription, the chip can be up to 35 times more efficient than relying on a GPU.</p></div><p><a href="https://arstechnica.com/?p=1977529#p3">Read 16 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1977529&comments=1">Comments</a></p>

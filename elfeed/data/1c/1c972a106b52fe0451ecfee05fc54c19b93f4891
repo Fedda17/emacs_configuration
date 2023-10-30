@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/GettyImages-130877670-800x535.jpg" alt="Blank CD inserted into a laptop CD drive, with a spindle of blank CDs nearby.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/GettyImages-130877670-scaled.jpg" class="enlarge-link" data-height="1713" data-width="2560">Enlarge</a> <span class="sep">/</span> Cue files used to be much better-known, back when we all used CD-Rs to make legal backup copies of material that we owned outright. (credit: Getty Images)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>It has been a very long time since the average computer user thought about <a href="https://en.wikipedia.org/wiki/Cue_sheet_(computing)">.cue files</a>, or cue sheets, the metadata bits that describe the tracks of an optical disc, like a CD or DVD. But cue sheets are getting attention again, for all the wrong reasons. They're at the heart of a one-click exploit that could give an attacker code execution on Linux systems with GNOME desktops.</p>
+<p><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-43641">CVE-2023-43641</a>, <a href="https://github.blog/2023-10-09-coordinated-disclosure-1-click-rce-on-gnome-cve-2023-43641/#fn-74613-1">disclosed by GitHub on October 9</a>, is a memory corruption (or out-of-bounds array writing) issue in the <a href="https://github.com/lipnitsk/libcue">libcue library</a>, which parses cue sheets. NIST has yet to provide a score for the issue, but GitHub's submission rates it an 8.8, or "High." While the vulnerability has been patched in the core library, Linux distributions will need to update their desktops to fix it.</p>
+<p>GNOME desktops have, by default, a "tracker miner" that automatically updates whenever certain file locations in a user's home directory are changed. If a user was compelled to download a cue sheet that took advantage of libcue's vulnerability, GNOME's indexing tracker would read the cue sheet, and code in that sheet could be executed.</p></div><p><a href="https://arstechnica.com/?p=1975395#p3">Read 5 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1975395&comments=1">Comments</a></p>

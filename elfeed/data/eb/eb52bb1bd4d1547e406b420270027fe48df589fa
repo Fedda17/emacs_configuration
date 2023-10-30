@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/openai_glowing_blue-800x450.jpg" alt="A glowing OpenAI logo on a blue background.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/openai_glowing_blue.jpg" class="enlarge-link" data-height="675" data-width="1200">Enlarge</a> (credit: OpenAI / Benj Edwards)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>OpenAI, the creator of <a href="https://arstechnica.com/information-technology/2022/12/openai-invites-everyone-to-test-new-ai-powered-chatbot-with-amusing-results/">ChatGPT</a> and <a href="https://arstechnica.com/information-technology/2023/09/openai-announces-dall-e-3-a-next-gen-ai-image-generator-based-on-chatgpt/">DALL-E 3</a> generative AI products, is exploring the possibility of manufacturing its own AI accelerator chips, according to <a href="https://www.reuters.com/technology/chatgpt-owner-openai-is-exploring-making-its-own-ai-chips-sources-2023-10-06/">Reuters</a>. Citing anonymous sources, the Reuters report indicates that OpenAI is considering the option due to a shortage of specialized AI GPU chips and the high costs associated with running them.</p>
+
+<p>OpenAI has been evaluating various options to address this issue, including potentially acquiring a chipmaking company and working more closely with other chip manufacturers like Nvidia. Currently, the AI firm has not made a final decision, but the discussions have been ongoing since at least last year. Nvidia <a href="https://arstechnica.com/information-technology/2023/08/nvidia-thinks-ai-boom-is-far-from-over-as-gpu-sales-drive-big-earnings-win/">dominates</a> the AI chip market, holding more than 80 percent of the global share for processors best suited for AI applications. OpenAI CEO Sam Altman has publicly <a href="https://web.archive.org/web/20230601000258/https://website-nm4keew22-humanloopml.vercel.app/blog/openai-plans">expressed his concerns</a> over the scarcity and cost of these chips.</p>
+<p>The hardware situation is said to be a top priority for OpenAI, as the company currently relies on a massive supercomputer built by Microsoft, one of its <a href="https://arstechnica.com/information-technology/2023/01/openai-and-microsoft-reaffirm-shared-quest-for-powerful-ai-with-new-investment/">largest backers</a>. The supercomputer uses 10,000 Nvidia graphics processing units (GPUs), according to Reuters. Running ChatGPT comes with significant costs, with each query costing approximately 4 cents, according to <a href="https://www.bernsteinresearch.com/">Bernstein</a> analyst Stacy Rasgon. If queries grow to even a tenth of the scale of Google search, the initial investment in GPUs would be around $48.1 billion, with annual maintenance costs at about $16 billion.</p></div><p><a href="https://arstechnica.com/?p=1974362#p3">Read 3 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1974362&comments=1">Comments</a></p>

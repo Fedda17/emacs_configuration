@@ -1,0 +1,57 @@
+<p>Yesterday, longtime friend of the blog <a href="https://nathangrigg.com/">Nathan Grigg</a> posted this on <a href="https://mathstodon.xyz/@nathangrigg/111200850392969895">Mastodon</a>:</p>
+<blockquote>
+<p>Did you know that October 8 is 3.5% less likely to fall on a Sunday than a Saturday? Enjoy your rare day!</p>
+</blockquote>
+<p>It’s been a while since I’ve done any calendrical calculations of note, so I decided to confirm Nathan’s numbers (I had no doubt he was correct). And since I’ve never done anything like this in Mathematica, it seemed like a good opportunity to learn how it handles dates.</p>
+<p>Mathematica’s date object is most easily created using the cleverly named <a href="https://reference.wolfram.com/language/ref/DateObject.html"><code>DateObject</code> function</a>. Yesterday was</p>
+<pre><code>DateObject[{2023, 10, 8}]
+</code></pre>
+<p>where the argument is the year-month-day list for the date of interest. To get the day of the week, we can wrap this in <a href="https://reference.wolfram.com/language/ref/DayName.html"><code>DayName</code></a>,</p>
+<pre><code>DayName[DateObject[{2023, 10, 8}]]
+</code></pre>
+<p>which will return <code>Sunday</code>. This, like the other days of the week, is not a string, but a Mathematica object of its own. Another way to express the day of the week, which will turn out to be more convenient for this problem, is numerically, via the <code>ISOWeekDay</code> property of the <a href="https://reference.wolfram.com/language/ref/DateValue.html"><code>DateValue</code> function</a>:</p>
+<pre><code>DateValue[DateObject[{2023, 10, 8}], "ISOWeekDay"]
+</code></pre>
+<p>This returns 7, because <code>ISOWeekDay</code> is defined as 1 for Monday through 7 for Sunday.</p>
+<p>With this in hand, I did a brute force solution. The <a href="https://en.wikipedia.org/wiki/Gregorian_calendar">Gregorian calendar</a> we use repeats itself every 400 years, so I generated a <a href="https://reference.wolfram.com/language/ref/Table.html">table</a> of 400 values for the weekday number of October 8 from 1800 through 2199. The command was</p>
+<pre><code>gregCycle =  Table[DateValue[DateObject[{y, 10, 8}], "ISOWeekDay"], {y, 1800, 2199}]
+</code></pre>
+<p>and the output was this list, which I’ve reformatted for easier reading:</p>
+<pre><code>3  4  5  6  1  2  3  4  6  7  1  2  4  5  6  7  2  3  4  5
+7  1  2  3  5  6  7  1  3  4  5  6  1  2  3  4  6  7  1  2
+4  5  6  7  2  3  4  5  7  1  2  3  5  6  7  1  3  4  5  6
+1  2  3  4  6  7  1  2  4  5  6  7  2  3  4  5  7  1  2  3
+5  6  7  1  3  4  5  6  1  2  3  4  6  7  1  2  4  5  6  7
+1  2  3  4  6  7  1  2  4  5  6  7  2  3  4  5  7  1  2  3
+5  6  7  1  3  4  5  6  1  2  3  4  6  7  1  2  4  5  6  7
+2  3  4  5  7  1  2  3  5  6  7  1  3  4  5  6  1  2  3  4
+6  7  1  2  4  5  6  7  2  3  4  5  7  1  2  3  5  6  7  1
+3  4  5  6  1  2  3  4  6  7  1  2  4  5  6  7  2  3  4  5
+7  1  2  3  5  6  7  1  3  4  5  6  1  2  3  4  6  7  1  2
+4  5  6  7  2  3  4  5  7  1  2  3  5  6  7  1  3  4  5  6
+1  2  3  4  6  7  1  2  4  5  6  7  2  3  4  5  7  1  2  3
+5  6  7  1  3  4  5  6  1  2  3  4  6  7  1  2  4  5  6  7
+2  3  4  5  7  1  2  3  5  6  7  1  3  4  5  6  1  2  3  4
+5  6  7  1  3  4  5  6  1  2  3  4  6  7  1  2  4  5  6  7
+2  3  4  5  7  1  2  3  5  6  7  1  3  4  5  6  1  2  3  4
+6  7  1  2  4  5  6  7  2  3  4  5  7  1  2  3  5  6  7  1
+3  4  5  6  1  2  3  4  6  7  1  2  4  5  6  7  2  3  4  5
+7  1  2  3  5  6  7  1  3  4  5  6  1  2  3  4  6  7  1  2
+</code></pre>
+<p>The choice of 1800–2199 was arbitrary—any 400-year stretch would have worked just as well.</p>
+<p>I then generated a <a href="https://reference.wolfram.com/language/ref/Histogram.html">histogram</a> from these values using</p>
+<pre><code>Histogram[gregCycle]
+</code></pre>
+<p>which returned this plot:</p>
+<p><img alt="Weekday histogram" class="ss" src="https://leancrew.com/all-this/images2023/20231009-Weekday%20histogram.png" title="Weekday histogram" width="90%"/></p>
+<p>When you’re working in the Mathematica app, you can hover over each column to see a popup of the count for that weekday. Or you can run this,</p>
+<pre><code>KeySort[Counts[gregCycle]]
+</code></pre>
+<p>to get the heights of all the columns at once</p>
+<pre><code>&lt;|1 -&gt; 58, 2 -&gt; 57, 3 -&gt; 57, 4 -&gt; 58, 5 -&gt; 56, 6 -&gt; 58, 7 -&gt; 56|&gt;
+</code></pre>
+<p>(The weird-looking brackets and the arrows are how Mathematica formats <a href="https://reference.wolfram.com/language/ref/Association.html">associations</a>, which are the equivalent of dictionaries in Python and hashes in Perl.)</p>
+<p>As you can see, there are 56 Sundays and 58 Saturdays per cycle, so Sundays are 3.5% (OK, 3.44828…%) less common than Saturdays, just as Nathan said.</p>
+<p>That the weekdays aren’t uniformly distributed comes from the cycle length of the Gregorian calendar. 400 is not a multiple of 7, so it’s impossible for the all the weekdays to occur the same number of times in 400 years. Still, it does seem a little weird—to me, anyway—that the counts differ by as much as two instead of just one.</p>
+<p>You may object to this analysis. <em>What’s the point of looking over a 400-year cycle when I’m only going to experience a fraction of it?</em> Good point. More important, most (likely all) of us will never experience a century year that isn’t a leap year. We’re living in this two-century stretch of time that might just as well be governed by the <a href="https://en.wikipedia.org/wiki/Julian_calendar">Julian calendar</a>—a leap year every fourth year with no exceptions. Such a calendar repeats every 28 years, not every 400, and because 28 is a multiple of 7, October 8 falls on every weekday an equal number of times each cycle. Whether you personally will experience an equal number of October 8ths on a Sunday as on a Saturday will depend entirely on where in the cycle you were born and where in the cycle you will die.</p>
+<p>And on that happy note, we’ll close out this post.</p>

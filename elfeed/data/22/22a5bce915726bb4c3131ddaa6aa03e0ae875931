@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/23andme-800x534.jpg" alt="The 23andMe logo displayed on a smartphone screen.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/23andme.jpg" class="enlarge-link" data-height="683" data-width="1024">Enlarge</a> <span class="sep">/</span> The 23andMe logo displayed on a smartphone screen. </p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Genetic profiling service 23andMe has commenced an investigation after private user data was scraped off its website</p>
+<p>Friday’s confirmation comes <a href="https://cyberscoop.com/23andme-user-data-theft/">five days</a> after an unknown entity took to an online crime forum to advertise the sale of private information for <a href="https://twitter.com/DarkWebInformer/status/1709348139793068069">millions of 23andMe users</a>. The forum posts claimed that the stolen data included origin estimation, phenotype, health information, photos, and identification data. The posts claimed that 23andMe’s CEO was aware the company had been “hacked” two months earlier and never revealed the incident. In a statement emailed after this post went live, a 23andMe representative said that "nothing they have posted publicly indicates they actually have any 'health information.' These are all unsubstantiated claims at this point."</p>
+<p>23andMe officials on Friday confirmed that private data for some of its users is, in fact, up for sale. The cause of the leak, the officials said, is data scraping, a technique that essentially reassembles large amounts of data by systematically extracting smaller amounts of information available to individual users of a service. Attackers gained unauthorized access to the individual 23andMe accounts, all of which had been configured by the user to opt in to a DNA relative feature that allows them to find potential relatives.</p></div><p><a href="https://arstechnica.com/?p=1974265#p3">Read 9 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1974265&comments=1">Comments</a></p>

@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2020/06/server-ddos-storm-surge-800x450.jpg" alt="How DDoSers used the HTTP/2 protocol to deliver attacks of unprecedented size">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2020/06/server-ddos-storm-surge.jpg" class="enlarge-link" data-height="563" data-width="1000">Enlarge</a> (credit: Aurich Lawson / Getty)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>In August and September, threat actors unleashed the biggest distributed denial-of-service attacks in Internet history by exploiting a previously unknown vulnerability in a key technical protocol. Unlike other high-severity zerodays in recent years—<a href="https://arstechnica.com/information-technology/2014/04/heartbleed-bug-exploited-to-steal-taxpayer-data/">Heartbleed</a> or <a href="https://arstechnica.com/information-technology/2021/12/minecraft-and-other-apps-face-serious-threat-from-new-code-execution-bug/">log4j</a>, for example—which caused chaos from a torrent of indiscriminate exploits, the more recent attacks, dubbed HTTP/2 Rapid Reset, were barely noticeable to all but a select few engineers.</p>
+<p>HTTP2/Rapid Reset is a novel technique for waging DDoS, or distributed denial-of-service attacks, of an unprecedented magnitude. It wasn’t discovered until after it was already being exploited to deliver record-breaking DDoSes. One attack on a customer using the Cloudflare content delivery network peaked at 201 million requests per second, almost triple the previous record Cloudflare had seen of <a href="https://blog.cloudflare.com/cloudflare-mitigates-record-breaking-71-million-request-per-second-ddos-attack/">71 million rps</a>. An attack on a site using Google’s cloud infrastructure topped out at 398 million rps, more than 7.5 times bigger than the previous record Google recorded of 46 million rps.</p>
+<h2>Doing more with less</h2>
+<p>The DDoSes hitting Cloudflare came from a network of roughly 20,000 malicious machines, a relatively small number compared with many so-called botnets. The attack was all the more impressive because, unlike many DDoSes directed at Cloudflare customers, this one resulted in intermittent 4xx and 5xx errors when legitimate users attempted to connect to some websites.</p></div><p><a href="https://arstechnica.com/?p=1975840#p3">Read 20 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1975840&comments=1">Comments</a></p>

@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/ileakage-password-demo-800x451.jpg" alt="Hackers can force iOS and macOS browsers to divulge passwords and much more">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/ileakage-password-demo.jpg" class="enlarge-link" data-height="905" data-width="1604">Enlarge</a> (credit: Kim et al.)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Researchers have devised an attack that forces Apple’s Safari browser to divulge passwords, Gmail message content, and other secrets by exploiting a side channel vulnerability in the A- and M-series CPUs running modern iOS and macOS devices.</p>
+<p>iLeakage, as the academic researchers have named the attack, is practical and requires minimal resources to carry out. It does, however, require extensive reverse-engineering of Apple hardware and significant expertise in exploiting a class of vulnerability known as a <a href="https://en.wikipedia.org/wiki/Side-channel_attack">side channel</a>, which leaks secrets based on clues left in electromagnetic emanations, data caches, or other manifestations of a targeted system. The side channel in this case is speculative execution, a performance enhancement feature found in modern CPUs that has formed the basis of a <a href="https://arstechnica.com/gadgets/2021/05/new-spectre-attack-once-again-sends-intel-and-amd-scrambling-for-a-fix/">wide</a> <a href="https://arstechnica.com/gadgets/2018/01/meltdown-and-spectre-every-modern-processor-has-unfixable-security-flaws/">corpus</a> of <a href="https://arstechnica.com/information-technology/2020/03/hackers-can-steal-secret-data-stored-in-intels-sgx-secure-enclave/">attacks</a> in <a href="https://arstechnica.com/information-technology/2020/06/new-exploits-plunder-crypto-keys-and-more-from-intels-ultrasecure-sgx/">recent</a> years. The nearly endless stream of exploit variants has left chip makers—primarily Intel and, to a lesser extent, AMD—scrambling to devise mitigations.</p>
+<h2>Exploiting WebKit on Apple silicon</h2>
+<p>The researchers implement iLeakage as a website. When visited by a vulnerable macOS or iOS device, the website uses JavaScript to surreptitiously open a separate website of the attacker’s choice and recover site content rendered in a pop-up window. The researchers have successfully leveraged iLeakage to recover YouTube viewing history, the content of a Gmail inbox—when a target is logged in—and a password as it’s being autofilled by a credential manager. Once visited, the iLeakage site requires about five minutes to profile the target machine and, on average, roughly another 30 seconds to extract a 512-bit secret, such as a 64-character string.</p></div><p><a href="https://arstechnica.com/?p=1978389#p3">Read 18 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1978389&comments=1">Comments</a></p>

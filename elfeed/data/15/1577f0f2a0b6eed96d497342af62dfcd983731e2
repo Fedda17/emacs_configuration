@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/it-administrator-800x530.jpg" alt="Enraged computer technician man screaming and breaking a PC with a hammer.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/it-administrator.jpg" class="enlarge-link" data-height="795" data-width="1200">Enlarge</a> (credit: Getty Images)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>A critical vulnerability that hackers have exploited since August, which allows them to bypass multifactor authentication in Citrix networking hardware, has received a patch from the manufacturer. Unfortunately, applying it isn’t enough to protect affected systems.</p>
+<p>The vulnerability, tracked as CVE-2023-4966 and carrying a severity rating of 9.8 out of a possible 10, resides in the NetScaler Application Delivery Controller and NetScaler Gateway, which provide load balancing and single sign-on in enterprise networks, respectively. Stemming from a flaw in a currently unknown function, the information-disclosure vulnerability can be exploited so hackers can intercept encrypted communications passing between devices. The vulnerability can be exploited remotely and with no human action required, even when attackers have no system privileges on a vulnerable system.</p>
+<p>Citrix released a patch for the vulnerability <a href="https://support.citrix.com/article/CTX579459/netscaler-adc-and-netscaler-gateway-security-bulletin-for-cve20234966-and-cve20234967">last week</a>, along with an advisory that provided few details. On Wednesday, researchers from security firm Mandiant said that the vulnerability has been under active exploitation since August, possibly <a href="https://www.linkedin.com/feed/update/urn:li:activity:7120179274774417408/">for espionage</a> against professional services, technology, and government organizations. Mandiant warned that patching the vulnerability wasn’t sufficient to lock down affected networks because any sessions hijacked before the security update would persist afterward.</p></div><p><a href="https://arstechnica.com/?p=1977305#p3">Read 5 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1977305&comments=1">Comments</a></p>

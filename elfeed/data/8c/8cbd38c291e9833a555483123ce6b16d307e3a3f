@@ -1,0 +1,21 @@
+<p>Last week, John D. Cook wrote <a href="https://www.johndcook.com/blog/2023/08/26/awk/">an article</a> that I kind of agree with and kind of disagree with. Weirdly, I think he kind of disagrees with it, too.</p>
+<p>Cook says “using a simple language can teach you that you don’t need features you thought you needed,” and he uses <a href="https://github.com/onetrueawk/awk">awk</a> as the paradigm of this principle. He uses awk in a limited way to match the limits of the language:</p>
+<blockquote>
+<p>It has been years since I’ve written an awk program that is more than one line. If something would require more than one line of awk, I probably wouldn’t use awk. I’m not morally opposed to writing longer awk programs, but awk’s sweet spot is very short programs typed at the command line.</p>
+</blockquote>
+<p>The only part of this that doesn’t apply to me is that I don’t think I’ve <em>ever</em> written an awk program longer than a single line. I try to use awk when its superpower—the automatic splitting of lines into fields—fits what I need to do.</p>
+<p>But it’s in the next section of Cook’s post that we part ways. He argues that awk’s limited regular expression support<sup id="fnref:regex"><a href="#fn:regex" rel="footnote">1</a></sup> is an advantage:</p>
+<blockquote>
+<p>At first I wished awk were more expressive is in its regular expression implementation. But awk’s minimal regex syntax is consistent with the aesthetic of the rest of the language. Awk has managed to maintain its elegant simplicity by resisting calls to add minor conveniences that would complicate the language. The maintainers are right not to add the regex features I miss.</p>
+</blockquote>
+<p>This is a reasonable argument for people who’ve never used regexes with a larger syntax, but I don’t know anyone who fits that description. Certainly not Cook and certainly not me. When Perl became the language of the web in the 90s, it put its regex flavor in front of the world, and the world responded by adopting it wherever it could. Pretty much the only programming tools that didn’t were those that existed before Perl: most prominently grep, sed, and awk. So if you want to use regular expressions with any of these tools, you have to ask yourself whether the simplicity of the language is worth accepting the straightjacket of a limited regex syntax.</p>
+<p>As much as I like awk, whenever I see my problem needing more than the most elementary of regular expressions, I abandon it for Perl and I don’t look back. Perl-compatible (or very nearly Perl-compatible) regular expressions are in all the other tools I use frequently—trying to remember the awk differences adds complexity to my use of it.</p>
+<p>After reading Cook’s post, I thought <em>Wait a minute. Isn’t this the guy who recommended using</em> <a href="https://metacpan.org/dist/Unicode-Tussle/view/script/tcgrep"><code>tcgrep</code></a> <em>so you could stick with Perl regex syntax?</em> <a href="https://www.johndcook.com/blog/2021/03/03/tcgrep/">Yes it is</a>. I think his argument in that earlier post applies just as well to awk as it does to grep.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:regex">
+<p>Limited when compared to Perl and tools that use <a href="http://www.pcre.org/">PCRE</a>. <a href="#fnref:regex" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>

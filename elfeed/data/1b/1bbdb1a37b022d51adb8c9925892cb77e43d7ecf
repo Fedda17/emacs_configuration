@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/Screenshot-2023-10-10-at-2.57.34%E2%80%AFPM-800x331.png" alt="An icon representing a key amongst other Google-style icons">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/Screenshot-2023-10-10-at-2.57.34%E2%80%AFPM.png" class="enlarge-link" data-height="860" data-width="2078">Enlarge</a> <span class="sep">/</span> A Google-created splash image on the passkey theme. (credit: Google)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Google is taking a big step toward making passkeys the default login option for its users. <a href="https://blog.google/technology/safety-security/passkeys-default-google-accounts/">Starting</a> today, users logging in to personal Google accounts will be prompted to create and use passkeys instead of passwords when possible. (Passwords will still be used in some contexts where they are not yet supported.)</p>
+<p>Built on the WebAuthn standard, passkeys seek to replace passwords by leaning on your local device's authentication method, like biometrics or a PIN. We've published a couple of articles <a href="https://arstechnica.com/information-technology/2023/05/passwordless-google-accounts-are-easier-and-more-secure-than-passwords-heres-why/">explaining passkeys</a> in detail and <a href="https://arstechnica.com/information-technology/2023/05/passkeys-may-not-be-for-you-but-they-are-safe-and-easy-heres-why/">answering common questions</a> about them, but the very short explanation is that your operating system creates a unique, local pair of keys to match your account for a website, service, or application. One key is on the server, but the other (the one you need to sign in) is local.</p>
+<p>Here's how Google describes them:</p></div><p><a href="https://arstechnica.com/?p=1974769#p3">Read 2 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1974769&comments=1">Comments</a></p>

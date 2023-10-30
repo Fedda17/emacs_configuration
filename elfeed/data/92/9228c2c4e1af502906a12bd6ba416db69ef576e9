@@ -1,0 +1,6 @@
+
+<p>Diceright is a virtual tabletop for playing dungeons and dragons with friends on the web.  You can watch a quick overview of how it works here: <a href="https://tinyurl.com/diceright" rel="nofollow noreferrer">https://tinyurl.com/diceright</a>.  And there’s a list of the main features right on the homepage.<p>It’s a Ruby on Rails site that makes heavy use of action cable for keeping the maps and tokens in sync for all players.  On the front end, I’m using HTML canvas for the maps and a js library called fabric.js for interacting with the canvas.  Otherwise, just jQuery on the front end.  I optimized it all to work on mobile too.<p>I built this as a side project for fun over of the past couple years.  It took a lot longer than expected, but it was also a lot of fun.  I did all the design / UX for it too which was a struggle at first but was a great learning experience.<p>Let me know what you think and if you have any questions.  Thanks!</p>
+<hr>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=37857765">https://news.ycombinator.com/item?id=37857765</a></p>
+<p>Points: 86</p>
+<p># Comments: 29</p>

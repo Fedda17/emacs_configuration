@@ -1,0 +1,48 @@
+<p>[Equations in this post may not look right (or appear at all) in your RSS reader. Go to <a href="https://leancrew.com/all-this/2023/10/happy-and-sad/">the original article</a> to see them rendered properly.]</p>
+  <hr />
+  <p>Science writer Jennifer Ouillette <a href="https://universeodon.com/@JenLucPiquant/111289909278779067">linked</a> to <a href="https://www.scientificamerican.com/article/all-natural-numbers-are-either-happy-or-sad-some-are-narcissistic-too/">this <em>Scientific American</em> article</a> on Mastodon this morning. It’s about <a href="https://mathworld.wolfram.com/HappyNumber.html">happy</a> and <a href="https://mathworld.wolfram.com/UnhappyNumber.html">sad</a> numbers, which I had never heard of before. The article is by Manon Bischof and was originally published in <em>Spektrum der Wissenschaft</em>, where she’s an editor.</p>
+<p>Overall, the article made me happy, but one part of it made me sad. It’s this description of an algorithm you can use to categorize a three-digit number, where the hundreds, tens, and ones digits are <em>i</em>, <em>j</em>, and <em>k</em>, respectively:</p>
+<p><img alt="Scientific American algorithm screenshot" class="ss" src="https://leancrew.com/all-this/images2023/20231024-Scientific%20American%20algorithm%20screenshot.png" title="Scientific American algorithm screenshot" width="95%"/></p>
+<p>The problem is in Step 5 of the algorithm, where I’ve spread out the equations to make them easier to read:</p>
+<blockquote>
+<p>5. If neither case is true, set new values for <em>i</em>, <em>j</em> and <em>k</em> using the “floor function” Floor(<em>x</em>), which assigns each decimal number its rounded-down integer value (Floor(1.6) = 1):</p>
+<p><em>i</em> = Floor(<em><sup>z</sup></em>⁄<sub>100</sub>),</p>
+<p><em>j</em> = Floor(<em><sup>a</sup></em><sup> – 100 x <em>i</em></sup> ⁄ <sub>10</sub> ),</p>
+<p><em>k</em> = <em>a</em> – <em>i </em> x 100 – <em>j</em> x 10.</p>
+<p>With these new values for <em>i</em>, <em>j</em> and <em>k,</em> continue the algorithm at step 2.</p>
+</blockquote>
+<p>What’s wrong with this? Let us count the ways:</p>
+<ol>
+<li>The variable <em>a</em> in the equations for <em>j</em> and <em>k</em> should be <em>z</em>. There is no <em>a</em>.</li>
+<li>The letter “x” should not be used to represent multiplication, especially when you’re using a serifed font, and especially especially when you’ve used it as a variable earlier in the sentence. There is a symbol for multiplication, ×, which has an easy-to-remember HTML entity, <code>&amp;times</code>.</li>
+<li>There’s no reason for a multiplication symbol in the first place. Surely <em>Scientific American</em> readers know that multiplication is implied when a number and a symbol are adjacent to one another: <math><semantics><mrow><mn>100</mn><mi>i</mi><mo>=</mo><mn>100</mn><mi>×</mi><mi>i</mi></mrow><annotation>100 i = 100 \times i</annotation></semantics></math>.</li>
+<li>How about a little consistency in how you present multiplication? Yes, multiplication is commutative, but there’s no reason to write <math><semantics><mrow><mn>100</mn><mi>×</mi><mi>i</mi></mrow><annotation>100 \times i</annotation></semantics></math> in one formula and <math><semantics><mrow><mi>i</mi><mi>×</mi><mn>100</mn></mrow><annotation>i \times 100</annotation></semantics></math> in the next.</li>
+<li>In fact, let’s go further. Always put the number first. No one typesets math with a variable before the number.</li>
+</ol>
+<p>And although it’s not wrong, it might have helped readers to be more explicit in noting that these formulas are a mathematical way to extract the hundreds, tens, and ones digits from <em>z</em> (and any of these digits could be zero). In the examples earlier in the article, the digits were determined by inspection.</p>
+<p>Because I’ve been thinking a lot about <a href="https://leancrew.com/all-this/2023/09/testing-mathml/">expressing formulas on the web</a> lately, I decided to look at the HTML source for Step 5 in the <em>SciAm</em> article. Here it is:</p>
+<pre><code>xml:
+5. If neither case is true, set new values for &lt;em&gt;i&lt;/em&gt;, 
+&lt;em&gt;j&lt;/em&gt; and &lt;em&gt;k&lt;/em&gt; using the &amp;ldquo;floor function&amp;rdquo; 
+Floor(&lt;em&gt;x&lt;/em&gt;), which assigns each decimal number its 
+rounded-down integer value (Floor(1.6) = 1): 
+&lt;em&gt;i&lt;/em&gt; = Floor(&lt;em&gt;&lt;sup&gt;z&lt;/sup&gt;&lt;/em&gt;&amp;frasl;&lt;sub&gt;100&lt;/sub&gt;), 
+&lt;em&gt;j&lt;/em&gt; = Floor(&lt;em&gt;&lt;sup&gt;a&lt;/sup&gt;&lt;/em&gt;&lt;sup&gt; &amp;ndash; 
+100 x &lt;em&gt;i&lt;/em&gt;&lt;/sup&gt; &amp;frasl; &lt;sub&gt;10&lt;/sub&gt; ), 
+&lt;em&gt;k&lt;/em&gt; = &lt;em&gt;a&lt;/em&gt; &amp;ndash; &lt;em&gt;i &lt;/em&gt; x 100 &amp;ndash; 
+&lt;em&gt;j&lt;/em&gt; x 10. 
+With these new values for &lt;em&gt;i&lt;/em&gt;, &lt;em&gt;j&lt;/em&gt; and &lt;em&gt;k,&lt;/em&gt; 
+continue the algorithm at step 2.
+</code></pre>
+<p>Using <code>&lt;sup&gt;</code> and <code>&lt;sub&gt;</code> is a reasonable approach for simple formulas like this, but why isn’t <em>Scientific American</em> using MathML, MathJax, or whatever other systems are out there for rendering mathematics on a web page? They’ve been printing mathematics in the hardcopy magazine for ages.</p>
+<hr/>
+<p>You may have noticed that I’ve switched over to MathML here.<sup id="fnref:mathjax"><a href="#fn:mathjax" rel="footnote">1</a></sup> If you keep up with the blog via RSS, you’ve seen that posts with equations (like this one) have a disclaimer at the top, telling you that there are formulas in the post that your feed reader may not render correctly. If the formulas don’t render correctly, that’s probably because of the subscription service you’re using, not the reader. I intend to write a post explaining what I’ve learned about MathML, feed readers, and subscription services soon.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:mathjax">
+<p>The MathJax logo in the sidebar and all the MathJax leftovers in the HTML source will be cleaned up as soon as I feel confident I’m done with all the changes. <a href="#fnref:mathjax" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+  

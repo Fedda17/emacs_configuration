@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/ai_chips_money-800x450.jpg" alt="Illustration of a person holding a computer chip with hands holding dollar bills surrounging them.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/ai_chips_money.jpg" class="enlarge-link" data-height="675" data-width="1200">Enlarge</a> (credit: <a rel="nofollow" class="caption-link" href="https://www.gettyimages.com/detail/illustration/businesswoman-holding-microchip-royalty-free-illustration/1311019616">Getty Images</a>)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Big Tech companies like Microsoft and Google are grappling with the challenge of turning AI products like ChatGPT into a profitable enterprise, <a href="https://www.wsj.com/tech/ai/ais-costly-buildup-could-make-early-products-a-hard-sell-bdd29b9f">reports</a> The Wall Street Journal. While companies are heavily investing in AI tech that can generate business memos or code, the cost of running advanced AI models is proving to be a significant hurdle. Some services, like Microsoft's GitHub Copilot, drive significant operational losses.</p>
+
+<p>Generative AI models used for creating text are not cheap to operate. Large language models (LLM) like the ones that power <a href="https://arstechnica.com/information-technology/2022/12/openai-invites-everyone-to-test-new-ai-powered-chatbot-with-amusing-results/">ChatGPT</a> require powerful servers with high-end, energy-consuming chips. For example, we recently <a href="https://arstechnica.com/information-technology/2023/10/openai-may-jump-into-ai-hardware-amid-high-costs-supply-constraints/">cited a Reuters report</a> with analysis that claimed each ChatGPT query may cost 4 cents to run. As a result, Adam Selipsky, the chief executive of Amazon Web Services, told the Journal that many corporate customers are unhappy with the high running costs of these AI models.</p>
+<p>The current cost challenge is tied to the nature of AI computations, which often require new calculations for each query, unlike standard software that enjoys economies of scale. This makes flat-fee models for AI services risky, as increasing customer usage can drive up operational costs and lead to potential losses for the company.</p></div><p><a href="https://arstechnica.com/?p=1974637#p3">Read 4 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1974637&comments=1">Comments</a></p>

@@ -1,0 +1,34 @@
+<p>[Equations in this post may not look right (or appear at all) in your RSS reader. Go to <a href="https://leancrew.com/all-this/2023/09/testing-mathml/">the original article</a> to see them rendered properly.]</p>
+  <hr />
+  <p>As I mentioned on Mastodon <a href="https://fosstodon.org/@drdrang/111060183852798759">yesterday</a>, I expect to be be including more equations in future posts, and I’d like the equations to appear readable in my RSS feed. This is a test to see if <a href="https://developer.mozilla.org/en-US/docs/Web/MathML">MathML</a> will work.</p>
+<p>I’ve been using <a href="https://www.mathjax.org/">MathJax</a> (and its predecessor, jsMath) for many years, and it works quite well here on the blog itself, but because it formats the equations via JavaScript, the equations aren’t formatted in the RSS feed. The  RSS feed just shows the LaTeX code for each equation—not bad for short equations, but increasingly hard to read as the equations get longer. If you’re an RSS subscriber, you’ve noticed that the following disclaimer appears at the bottom of each article in the feed:</p>
+<blockquote>
+<p>If there are equations in this post, you will see them rendered properly in the original article.</p>
+</blockquote>
+<p>where “the original article” is a link to the blog, where MathJax can do its magic.</p>
+<p>So I’m thinking about ways to get the equations to look right in RSS readers. One obvious way is to render them as images, upload them, and insert <code>&lt;img&gt;</code> tags at the appropriate spots,<sup id="fnref:md"><a href="#fn:md" rel="footnote">1</a></sup> but this seems crude and very Web 1.0. Although I suppose I could render the equations as SVGs, which would allow users to zoom in without seeing jaggies.</p>
+<p>MathML is the “right” way to do equations and is supported by all the browsers I can think of, so the math should look right for everyone who visits the blog directly.<sup id="fnref:safari"><a href="#fn:safari" rel="footnote">2</a></sup> The question is whether it’ll be rendered properly in RSS readers. My guess is that it will be, since I believe that RSS readers use the same rendering engines used by browsers. But the only way to know for sure is to write a post with MathML and see how it looks. So here goes:</p>
+<p>The general formula for the mass moment of inertia about the x-axis, <math style="color:rgba(0,0,0,255);color:rgb(0,0,0);font-size:12.00pt;" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle><mrow><mtable columnalign="right center left" columnspacing="0.167em" displaystyle="true"><mtr><mtd><mrow><msub><mi>I</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub></mrow></mtd></mtr></mtable></mrow></mstyle></math>, is</p>
+<p align="center"><math style="color:rgba(0,0,0,255);color:rgb(0,0,0);font-size:12.00pt;" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle><mrow><mtable columnalign="right center left" columnspacing="0.167em" displaystyle="true"><mtr><mtd><mrow><msub><mi>I</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub></mrow><mo>=</mo><mrow><msub><mo>∫</mo><mi>V</mi></msub></mrow><mi>ρ</mi><mspace width="0.167em"></mspace><mo maxsize="1">(</mo><mrow><msup><mi>y</mi><mn>2</mn></msup></mrow><mo>+</mo><mrow><msup><mi>z</mi><mn>2</mn></msup></mrow><mo maxsize="1">)</mo><mi>d</mi><mi>V</mi></mtd></mtr></mtable></mrow></mstyle></math></p>
+<p>This can be specialized for certain geometries. For example, the moment of inertia of a thin rod about an axis through the rod’s center and perpendicular to it is</p>
+<p align="center"><math style="color:rgba(0,0,0,255);color:rgb(0,0,0);font-size:12.00pt;" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle><mrow><mtable columnalign="right center left" columnspacing="0.167em" displaystyle="true"><mtr><mtd><mrow><msub><mi>I</mi><mrow><mi>x</mi><mi>x</mi></mrow></msub></mrow><mo>=</mo><mfrac><mrow><mn>1</mn></mrow><mrow><mn>1</mn><mn>2</mn></mrow></mfrac><mi>m</mi><mrow><msup><mi>L</mi><mn>2</mn></msup></mrow></mtd></mtr></mtable></mrow></mstyle></math></p>
+<p>Finally, for <a href="https://zeppelin.flights/@dmoren/111059596645961043">Dan Moren</a>, the parallel axis theorem is</p>
+<p align="center"><math style="color:rgba(0,0,0,255);color:rgb(0,0,0);font-size:12.00pt;" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle><mrow><mtable columnalign="right center left" columnspacing="0.167em" displaystyle="true"><mtr><mtd><mrow><msubsup><mi>I</mi><mrow><mi>x</mi><mi>x</mi></mrow><mi>P</mi></msubsup></mrow><mo>=</mo><mrow><msubsup><mi>I</mi><mrow><mi>x</mi><mi>x</mi></mrow><mi>C</mi></msubsup></mrow><mo>+</mo><mi>m</mi><mrow><msup><mi>d</mi><mn>2</mn></msup></mrow></mtd></mtr></mtable></mrow></mstyle></math></p>
+<p>where <math style="color:rgba(0,0,0,255);color:rgb(0,0,0);font-size:12.00pt;" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle><mrow><mtable columnalign="right center left" columnspacing="0.167em" displaystyle="true"><mtr><mtd><mrow><msubsup><mi>I</mi><mrow><mi>x</mi><mi>x</mi></mrow><mi>C</mi></msubsup></mrow></mtd></mtr></mtable></mrow></mstyle></math> is the moment of inertia about an axis through the centroid of the body and <math style="color:rgba(0,0,0,255);color:rgb(0,0,0);font-size:12.00pt;" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle><mrow><mtable columnalign="right center left" columnspacing="0.167em" displaystyle="true"><mtr><mtd><mrow><msubsup><mi>I</mi><mrow><mi>x</mi><mi>x</mi></mrow><mi>P</mi></msubsup></mrow></mtd></mtr></mtable></mrow></mstyle></math> is the moment of inertia about a parallel axis a distance <math style="color:rgba(0,0,0,255);color:rgb(0,0,0);font-size:12.00pt;" xmlns="http://www.w3.org/1998/Math/MathML"><mstyle><mrow><mtable columnalign="right center left" columnspacing="0.167em" displaystyle="true"><mtr><mtd><mi>d</mi></mtd></mtr></mtable></mrow></mstyle></math> from the centroid.</p>
+<p>After I publish this post, I’ll check my RSS feed in NetNewsWire and update the post with a note on how the equations looked.</p>
+<div class="update">
+<p><strong>Update 14 Sep 2023 10:54 AM</strong><br/>
+As I hoped, NetNewWire shows the equations rendered properly (apart from some baseline misalignment for the inline math) in my RSS feed. I’m interested in hearing how other feedreaders perform.</p>
+</div>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:md">
+<p>Although I use Markdown, I prefer <code>&lt;img&gt;</code> tags to the <code>!</code> syntax. <a href="#fnref:md" rev="footnote">↩</a></p>
+</li>
+<li id="fn:safari">
+<p>Safari, unfortunately, has the worst MathML renderer of the browsers I’ve tested. What it shows is certainly readable, but the baseline is inconsistent, making the equations look a bit tipsy. <a href="#fnref:safari" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+  

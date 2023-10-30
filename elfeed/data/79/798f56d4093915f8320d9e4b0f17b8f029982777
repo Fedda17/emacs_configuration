@@ -1,0 +1,16 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/08/warning-800x534.jpg" alt="Warning sign">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/08/warning.jpg" class="enlarge-link" data-height="1494" data-width="2240">Enlarge</a> (credit: Miragec/Getty Images)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Google has been caught hosting a malicious ad so convincing that there’s a decent chance it has managed to trick some of the more security-savvy users who encountered it.</p>
+<div class="image shortcode-img center large"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/malicious-keepass-ad-google.png"><img alt="Screenshot of the malicious ad hosted on Google." src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/malicious-keepass-ad-google-640x477.png" srcset="https://cdn.arstechnica.net/wp-content/uploads/2023/10/malicious-keepass-ad-google.png 2x"></a><p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/malicious-keepass-ad-google.png" class="caption-link" rel="nofollow">Screenshot of the malicious ad hosted on Google.</a> (credit: Malwarebytes)</p></div>
+<p>Looking at the ad, which masquerades as a pitch for the open source password manager Keepass, there’s no way to know that it’s fake. It’s on Google, after all, which claims to vet the ads it carries. Making the ruse all the more convincing, clicking on it leads to ķeepass[.]info, which, when viewed in an address bar, appears to be the <a href="https://keepass.info/">genuine Keepass site</a>.</p>
+<div class="image shortcode-img center large"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/fake-keepass-website.png"><img alt="Screenshot showing keepass.info in the URL and Keepass logo." src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/fake-keepass-website-640x393.png" srcset="https://cdn.arstechnica.net/wp-content/uploads/2023/10/fake-keepass-website.png 2x"></a><p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/fake-keepass-website.png" class="caption-link" rel="nofollow">Screenshot showing keepass.info in the URL and Keepass logo.</a> (credit: Malwarebytes)</p></div>
+<p>A closer look at the link, however, shows that the site is <em>not</em> the genuine one. In fact, ķeepass[.]info—at least when it appears in the address bar—is just an encoded way of denoting xn--eepass-vbb[.]info, which, it turns out, is pushing a malware family tracked as FakeBat. Combining the ad on Google with a website with an almost identical URL creates a near-perfect storm of deception.</p></div><p><a href="https://arstechnica.com/?p=1977141#p3">Read 6 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1977141&comments=1">Comments</a></p>

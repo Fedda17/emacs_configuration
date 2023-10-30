@@ -1,0 +1,15 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/eureka_hands-800x447.jpg" alt="In this still captured from a video provided by Nvidia, a simulated robot hand learns pen tricks, trained by Eureka, using simultaneous trials.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/eureka_hands-scaled.jpg" class="enlarge-link" data-height="1432" data-width="2560">Enlarge</a> <span class="sep">/</span> In this still captured from a video provided by Nvidia, a simulated robot hand learns pen tricks, trained by Eureka, using simultaneous trials. (credit: <a rel="nofollow" class="caption-link" href="https://eureka-research.github.io/">Nvidia</a>)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>On Friday, researchers from Nvidia, UPenn, Caltech, and the University of Texas at Austin announced Eureka, an algorithm that uses OpenAI's <a href="https://arstechnica.com/information-technology/2023/03/openai-announces-gpt-4-its-next-generation-ai-language-model/">GPT-4</a> language model for designing training goals (called "reward functions") to enhance robot dexterity. The work aims to bridge the gap between high-level reasoning and low-level motor control, allowing robots to learn complex tasks rapidly using massively parallel simulations that run through trials simultaneously. According to the team, Eureka outperforms human-written reward functions by a substantial margin.</p>
+
+<p>Before robots can interact with the real world successfully, they need to learn how to move their robot bodies to achieve goals—like picking up objects or moving. Instead of making a physical robot try and fail one task at a time to learn in a lab, researchers at Nvidia have been experimenting with using video game-like computer worlds (thanks to platforms called <a href="https://developer.nvidia.com/isaac-sim">Isaac Sim</a> and <a href="https://developer.nvidia.com/isaac-gym">Isaac Gym</a>) that simulate three-dimensional physics. These allow for massively parallel training sessions to take place in many virtual worlds at once, dramatically speeding up training time.</p>
+<p>"Leveraging state-of-the-art GPU-accelerated simulation in Nvidia Isaac Gym," writes Nvidia on its <a href="https://eureka-research.github.io/">demonstration page</a>, "Eureka is able to quickly evaluate the quality of a large batch of reward candidates, enabling scalable search in the reward function space." They call it "rapid reward evaluation via massively parallel <a href="https://en.wikipedia.org/wiki/Reinforcement_learning">reinforcement learning</a>."</p></div><p><a href="https://arstechnica.com/?p=1977747#p3">Read 6 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1977747&comments=1">Comments</a></p>

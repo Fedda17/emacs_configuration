@@ -1,0 +1,71 @@
+<p>Recently, Brad Dowdy—you know, <a href="https://www.relay.fm/penaddict">The Pen Addict</a>— ran <a href="https://mastodon.social/@penaddict/111267554756096803">a poll on Mastodon</a>, asking how many different notebooks people use.</p>
+<p><img alt="Pen Addict poll results" class="ss" src="https://leancrew.com/all-this/images2023/20231022-Pen%20Addict%20poll%20results.png" title="Pen Addict poll results" width="90%"/></p>
+<p>I understand why people use more than one notebook at a time. I used to do it, too, when I needed to keep various work projects separate from one another. It was also important for me to be able to move and reorganize pages. But since retiring (more or less) at the beginning of the year, I’ve decided that the simplicity of a single notebook with fixed pages outweighs the flexibility of multiple notebooks and moveable pages. So I’m now in the 29% group.</p>
+<p>I started this year with a University of Illinois-branded A5 notebook given to me last year as a Father’s Day gift by my younger son. It worked well, but I thought a thicker paper would work out better (that has to do with the pen I use, which we’ll get to in a minute). My next experiment was with a <a href="https://www.amazon.com/dp/B097GT2H2B">Feela A5 notebook</a> from Amazon.</p>
+<p><img alt="Feela Amazon image" class="ss" src="https://leancrew.com/all-this/images2023/20231022-Feela%20Amazon%20image.jpg" title="Feela Amazon image" width="95%"/></p>
+<p>These come in many colors and package counts from 3 through 24(!). I went with black because I’m boring and a 3-pack because this was an experiment.</p>
+<p>The Feela’s paper is definitely thick enough. I like writing on both sides of each sheet, and I use a Pilot Razor Point, which leave a pretty dark line, but I’ve never been distracted by seeing through to the previous page.</p>
+<p>I started the year trying out Sakura Pigma Micron pens, which <a href="https://www.penaddict.com/blog/2014/7/14/sakura-pigma-micron-blue-black-review?rq=micron">Brad recommends</a>, but they never felt as comfortable in my hand as a Razor Point. I’m sure Brad is right about the higher quality of the Micron ink, but I started using Razor Points in college, and it’s hard to overcome four decades of experience.</p>
+<p>(When I needed to take field notes for work, I tried a variety of pens, eventually settling on the Uniball Jetstream. Being retractable (no cap to lose) and drying instantly were important features when I was climbing up ladders and crawling under equipment, but I don’t take notes while doing those things anymore. I still have some Jetstreams lying around but don’t expect to buy any in the future.)</p>
+<p>By the way, each Feela comes with a cheap pen. If you feel guilty about throwing it away, I suggest you “forget” it at a library carrel or hotel room.</p>
+<p>The first Feela from my 3-pack was a success, and I’m partway through the second. Here’s what a couple of recent pages look like:</p>
+<p><img alt="Feela note pages" class="ss" src="https://leancrew.com/all-this/images2023/20231022-Feela%20note%20pages.jpg" title="Feela note pages" width="95%"/></p>
+<p>When you write everything in a single notebook, finding what you’ve written—especially when it’s more than a few days old—can be difficult. I use the date and page number fields at the top of each page to help me out. I start page numbers over for each topic and use the dates for an index that I write onto the notebook’s endpapers.</p>
+<p><img alt="Feela endpapers with index" class="ss" src="https://leancrew.com/all-this/images2023/20231022-Feela%20endpapers%20with%20index.jpg" title="Feela endpapers with index" width="95%"/></p>
+<p>There are 4 endpaper pages available for the index, which should be enough to cover the 128 pages in the notebook.</p>
+<p>When a notebook is filled, I write its date range in silver Sharpy on the front cover and spine and put it on a bookshelf. The Illinois-branded notebook covered about 6 months and the first Feela covered about 3 months. The difference is due partly to the difference in the number of pages but mostly to my using the notebook more as the year went on. I’ve been thinking that the handwritten indices inside each notebook will be less helpful as I accumulate more of them. So I’ve been working on the simplest way to have a computer-based searchable index.</p>
+<p>What I’ve done so far is dictate the handwritten indices into a simple plain text file, which should be easy to search. For each entry, I dictate the date as the month name and day number, then the description, then “newline.” That gives lines that look like this:</p>
+<pre><code>October 1 dummy unit load method for SS beam.
+October 3 Castigliano's second for SS beam.
+October 5 list of SS beam solutions.
+</code></pre>
+<p>This is a good way to get a lot of text into the file quickly, but it isn’t how I want the index to look. Apart from mistranscriptions and other one-off corrections, I want the dates to be in yyyy-mm-dd format and the descriptions to be capitalized and without a trailing period. Like this:</p>
+<pre><code>2023-10-01 Dummy unit load method for SS beam
+2023-10-03 Castigliano's second for SS beam
+2023-10-05 List of SS beam solutions
+</code></pre>
+<p>So I wrote this short Perl script to handle those common transformations.</p>
+<pre><code>perl:
+ 1:  #!/usr/bin/perl
+ 2:  
+ 3:  # Fix formatting issues that typically arise when I dictate my notes index.
+ 4:  
+ 5:  while (&lt;&gt;) {
+ 6:    # Fix only lines that haven't already been reformatted
+ 7:    if (/^                              # starts with
+ 8:          (January|February|March|      # one
+ 9:           April|May|June|              # of the
+10:           July|August|September|       # month
+11:           October|November|December)   # names
+12:          \s+                           # some whitespace
+13:          \d{1,2}                       # one or two digits
+14:          \s+                           # some whitespace
+15:        /x) {
+16:      
+17:      # Extract the date and the note
+18:      ($month, $day, $note) = split /\s+/, $_, 3;
+19:      
+20:      # Reformat the date to yyyy-mm-dd
+21:      $date = "$month $day";
+22:      $date = `date -j -f "%B %d" "$date" +"%Y-%m-%d"`;
+23:      chomp $date;
+24:      
+25:      # Reformat the note
+26:      $note = ucfirst $note;            # capitalize
+27:      $note =~ s/\.$//;                 # delete trailing period
+28:      
+29:      print "$date $note";
+30:    } else {
+31:      print;                            # print other lines as-is
+32:    }
+33:  }
+</code></pre>
+<p>It passes through unchanged the lines that <em>don’t</em> start with a month name and day number. The <code>date</code> command on Line 22 reformats the dates, and the short function and regex substitution calls on Lines 26–27 reformat the the descriptions.</p>
+<p>You may be wondering two things:</p>
+<ol>
+<li>Why Perl instead of Python?</li>
+<li>How does the year show up in the output when it isn’t in the input?</li>
+</ol>
+<p>It’s Perl instead of Python because it started as a simple shell script that used <code>date</code>. As the script grew and needed more capability, I didn’t want to abandon the work I’d put it to getting a working <code>date</code> command, and the easiest way to include a shell command in a non-shell script was Perl’s backticks.</p>
+<p>As for the year, when the <code>date</code> command encounters an item in the output specification that isn’t in the input date—in this case, <code>%Y</code>—it substitutes the value for the current date and time. So as long as I run the command this year, “October 1” is transformed to “2023-10-01.” Will this give incorrect years for December entries when I run the command next January? Yes, but since I intend to work with this file in BBEdit, I can use its column editing feature to quickly change all the incorrect <em>2024</em>s into <em>2023</em>s.</p>
+<p>I suspect this indexing system will change over time, but it’s a decent start. I’m already thinking I’ll give up on the handwritten index on the endpapers and just dictate the last several entries into the text file every week or so. Ultimately, everything is a work in progress.</p>

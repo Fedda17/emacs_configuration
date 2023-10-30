@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/1password-800x418.png" alt="1Password detects “suspicious activity” in its internal Okta account">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/1password.png" class="enlarge-link" data-height="627" data-width="1200">Enlarge</a> (credit: 1Password)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>1Password, a password manager used by millions of people and more than 100,000 businesses, said it detected suspicious activity on a company account provided by Okta, the identity and authentication service that disclosed a breach on Friday.</p>
+<p>“On September 29, we detected suspicious activity on our Okta instance that we use to manage our employee-facing apps,” 1Password CTO Pedro Canahuati wrote in an email. “We immediately terminated the activity, investigated, and found no compromise of user data or other sensitive systems, either employee-facing or user-facing.”</p>
+<p>Since then, Canahuati said, his company had been working with Okta to determine the means that the unknown attacker used to access the account. On Friday, investigators confirmed it resulted from a breach Okta reported hitting its customer support management system.</p></div><p><a href="https://arstechnica.com/?p=1978094#p3">Read 9 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1978094&comments=1">Comments</a></p>

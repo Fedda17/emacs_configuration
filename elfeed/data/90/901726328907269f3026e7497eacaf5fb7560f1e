@@ -1,0 +1,47 @@
+<p>A couple of days ago, I wrote <a href="https://leancrew.com/all-this/2023/09/iphone-15-pro-facts-and-estimates/">a post</a> that included this image:</p>
+<p><img alt="iPhone cuboid with axes" class="ss" src="https://leancrew.com/all-this/images2023/20230913-iPhone%20cuboid%20with%20axes.png" title="iPhone cuboid with axes" width="60%"/></p>
+<p>Because I don’t have a 3D drawing app, I did it in Mathematica. And because I’m new to Mathematica, I fumbled around a bit before figuring out what to do. I decided to write up what I learned so I could refer to it later, and I decided to post it here in case it’s of any value to anyone else.</p>
+<p>The key function when creating 3D images (that aren’t plots) is <a href="https://reference.wolfram.com/language/ref/Graphics3D.html"><code>Graphics3D</code></a>. As you can see from the linked documentation, it can take an enormous number of arguments and options. The main argument is a list of the objects to be drawn, which in the drawing above consisted of the boxy representation of an iPhone and three arrows representing the x, y, and z axes (I added the axis labels “by hand” in Acorn).</p>
+<p>One of the first things I learned was to create the objects separately instead of trying to build them within the call to <code>Graphics3D</code>. It’s certainly possible to make this image entirely within <code>Graphics3D</code>, but the function call becomes really long and confusing if you do it that way. I started by defining variables with the dimensions of the phone (in millimeters):</p>
+<pre><code>b = 71.5
+h = 147.5
+t = 7.85
+</code></pre>
+<p>In case you’re wondering, <code>b</code> is commonly used in my field for the width of objects—it’s short for <em>breadth</em>. We avoid <code>w</code> because we like to use it for weight.</p>
+<p>The boxy iPhone is defined using the <a href="https://reference.wolfram.com/language/ref/Cuboid.html"><code>Cuboid</code></a> function:</p>
+<pre><code>phone = Cuboid[{-b/2, -h/2, -t/2}, {b/2, h/2, t/2}]
+</code></pre>
+<p>The two arguments are its opposite corners.</p>
+<p>In theory, I could use Mathematica’s own knowledge of its coordinate system to draw the axes, but it defaults to drawing axes along the edges of a box that encloses the object, and I didn’t find any handy examples of overriding that default. It was easier to define the axes using the <code>Arrow</code> function:</p>
+<pre><code>xaxis = Arrow[{{0, 0, 0}, {b/2 + 25, 0, 0}}]
+yaxis = Arrow[{{0, 0, 0}, {0, h/2 + 25, 0}}]
+zaxis = Arrow[{{0, 0, 0}, {0, 0, t/2 + 25}}]
+</code></pre>
+<p>The argument to <code>Arrow</code> is a list of two points: the “from” point and the “to” point. As you can see, each arrow starts at the origin (which is the center of the phone) and extends in the appropriate direction 25 mm past the edge of the phone. Why 25 mm? It looked about right when I tried it.</p>
+<p>With the objects defined, I called <code>Graphics3D</code> to draw them:</p>
+<pre><code>Graphics3D[{Gray, phone, Black, Thick, xaxis, yaxis, zaxis},
+Boxed -&gt; False, ImageSize -&gt; Large]
+</code></pre>
+<p>(I’ve split the command into two lines here to make it easier to read, and I’ll do the same from now on.)</p>
+<p>As you can see, the list of objects that makes up the first argument is interspersed with directives on how those objects are to be drawn. The first directive, <code>Gray</code>, applies that color to <code>phone</code>. Then <code>Black</code> overrides <code>Gray</code> and is applied to the three axes that follow. I added the <code>Thick</code> directive before the axes when I saw that they looked too spindly by default.</p>
+<p>The <a href="https://reference.wolfram.com/language/ref/Boxed.html"><code>Boxed-&gt;False</code></a> option stops Mathematica from its default of including a wireframe bounding box in the image. <a href="https://reference.wolfram.com/language/ref/ImageSize.html?q=ImageSize"><code>ImageSize-&gt;Large</code></a> does what you think—it makes the image bigger than it otherwise would be.</p>
+<p>Here’s what Mathematica displays:</p>
+<p><img alt="iPhone in default orientation" class="ss" src="https://leancrew.com/all-this/images2023/20230915-iPhone%20in%20default%20orientation.png" title="iPhone in default orientation" width="90%"/></p>
+<p>Mathematica obviously thinks the z direction should be pointing up. This makes sense, but it isn’t what I wanted. The notebook interface allows you “grab” the image and rotate it into any orientation, so that’s what I did, putting it into the position you see at the top of the post. Then I right-clicked on the image and selected <span class="menu">Save Graphic As…</span> from the contextual menu. I opened the resulting image file in Acorn, added the axis labels, and uploaded the result to my web server.</p>
+<p>After publishing the post, I returned to Mathematica to see if I could get it to clean a few things up. First, I wasn’t happy with the brownish color that appeared on certain edges, depending on the orientation. That was cleared up with the <a href="https://reference.wolfram.com/language/ref/Lighting.html?q=Lighting"><code>Lighting-&gt;Neutral</code></a> option. Then I wanted programmatic control over the orientation, which I got via <a href="https://reference.wolfram.com/language/ref/ViewPoint.html"><code>ViewPoint-&gt;{-50, 30, 75}</code></a>, which sets the location of the virtual camera, and <a href="https://reference.wolfram.com/language/ref/ViewVertical.html"><code>ViewVertical-&gt;{.1, 1, 0}</code></a>, which rotates the camera about the axis of its lens until the given vector is pointing up in the image.</p>
+<p>Finally, I wanted to add the axis labels in Mathematica instead of relying on another program. This meant adding <code>Text</code> objects to the argument list, one for each axis. The final call to <code>Graphics3D</code> looked like this:</p>
+<pre><code>Graphics3D[{GrayLevel[.5], phone,
+Black, Thick, xaxis, yaxis, zaxis, 
+FontSize -&gt; 16,
+Text["x", {b/2 + 25, -7, 0}], 
+Text["y", {-7, h/2 + 25, 0}],
+Text["z", {-5, -5, t/2 + 25}]}, 
+Boxed -&gt; False, ImageSize -&gt; Large,
+ViewPoint -&gt; {-50, 30, 75}, ViewVertical -&gt; {.1, 1, 0},
+Lighting -&gt; "Neutral"]
+</code></pre>
+<p>Each <code>Text</code> object includes both the text and the point at which it is to be displayed. The <code>Text</code> items are preceded by a <code>FontSize</code> directive to make them big enough to see clearly. The <code>Black</code> directive earlier in the list was still in effect, so the text color was black.</p>
+<p>Here’s the result:</p>
+<p><img alt="iPhone cuboid with axes" class="ss" src="https://leancrew.com/all-this/images2023/20230915-iPhone%20cuboid%20with%20axes.png" title="iPhone cuboid with axes" width="60%"/></p>
+<p>As you can see, I’ve made the image more upright, and the neutral lighting has gotten rid of the weird brownish and bluish casts of the original. You may also note that I changed the original <code>Gray</code> directive to <code>GrayLevel[.5]</code>. This made no difference in the final output, but the <code>GrayLevel</code> argument did let me play around with different shades of gray before deciding that the 50% provided by <code>Gray</code> was just fine.</p>
+<p>I still have a long way to go with Mathematica, but I’m making progress.</p>

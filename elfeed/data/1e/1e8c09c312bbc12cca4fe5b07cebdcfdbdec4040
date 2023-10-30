@@ -1,0 +1,89 @@
+<p>Earlier this year, I had some trouble publishing one of my posts. I think it was <a href="https://leancrew.com/all-this/2023/05/parabolic-mirrors-made-simpler/">this one</a>, and the problem was caused by the parentheses in the title. The code I’d written long ago to turn a title into the slug used in the URL wasn’t as robust as I thought it was.  At the time, I made a quick change by hand to get the post published and made a note to myself to fix the code. Today I did. Twice.</p>
+<p>The word <em>slug</em> was apparently taken from the newspaper business and is defined <a href="https://wordpress.org/documentation/article/wordpress-glossary/#slug">this way</a>:</p>
+<blockquote>
+<p>A slug is a few words that describe a post or a page. Slugs are usually a URL friendly version of the post title.</p>
+</blockquote>
+<p>The URLs to individual posts here look like this:</p>
+<pre><code>https://leancrew.com/all-this/2023/08/slugify-slight-return/
+</code></pre>
+<p>which is the domain, a subdirectory, the year and month, and then the slug, which is based on the title. It’s supposed to be lower case, with all the punctuation stripped and all word separators turned into hyphens. Some people prefer underscores, but I like dashes.</p>
+<p>I’ve had a <code>slugify</code> function in my blog publishing system for ages. In <a href="https://leancrew.com/all-this/2014/10/asciifying/">a long-ago post</a>, I wrote about this early version of it:</p>
+<pre><code>python:
+1:  def slugify(u):
+2:    "Convert Unicode string into blog slug."
+3:    u = re.sub(u'[–—/:;,.]', '-', u)  # replace separating punctuation
+4:    a = unidecode(u).lower()          # best ASCII substitutions, lowercased
+5:    a = re.sub(r'[^a-z0-9 -]', '', a) # delete any other characters
+6:    a = a.replace(' ', '-')           # spaces to hyphens
+7:    a = re.sub(r'-+', '-', a)         # condense repeated hyphens
+8:    return a
+</code></pre>
+<p>This was written in Python 2. It had been updated to Python 3 and improved in the intervening years, but it was obviously still not bulletproof. Here’s the version I came up with this morning, including the necessary <code>import</code>s:</p>
+<pre><code>python:
+ 1:  import re
+ 2:  from unicodedata import normalize
+ 3:  
+ 4:  def slugify(text):
+ 5:    '''Make an ASCII slug of text'''
+ 6:    
+ 7:    # Make lower case and delete apostrophes from contractions
+ 8:    slug = re.sub(r"(\w)['’](\w)", r"\1\2", text.lower())
+ 9:    
+10:    # Convert runs of non-characters to single hyphens, stripping from ends
+11:    slug = re.sub(r'[\W_]+', '-', slug).strip('-')
+12:    
+13:    # Replace a few special characters that normalize doesn't handle
+14:    specials = {'æ':'ae', 'ß':'ss', 'ø':'o'}
+15:    for s, r in specials.items():
+16:        slug = slug.replace(s, r)
+17:    
+18:    # Normalize the non-ASCII text
+19:    slug = normalize('NFKD', slug).encode('ascii', 'ignore').decode()
+20:    
+21:    # Return the transformed string
+22:    return slug
+</code></pre>
+<p>This will turn</p>
+<pre><code>Parabolic mirrors made simple(r)
+</code></pre>
+<p>into</p>
+<pre><code>parabolic-mirrors-made-simple-r
+</code></pre>
+<p>which is what I want. A more complicated string, including non-ASCII characters,</p>
+<pre><code>Hél_lo—yøü don’t wånt “25–30%,” do you?
+</code></pre>
+<p>will be converted to</p>
+<pre><code>hel-lo-you-dont-want-25-30-do-you
+</code></pre>
+<p>which would also work well as a slug.</p>
+<p>Line 19, which uses the <a href="https://docs.python.org/3/library/unicodedata.html#unicodedata.normalize"><code>normalize</code> function</a> from the <a href="https://docs.python.org/3/library/unicodedata.html"><code>unicodedata</code> module</a> followed by <a href="https://docs.python.org/3/library/stdtypes.html#str.encode"><code>encode('ascii', 'ignore')</code></a> is far from perfect or complete, but it converts most accented letters into reasonable ASCII. Line 19 ends with <a href="https://docs.python.org/3/library/stdtypes.html#str.decode"><code>decode</code></a> to turn what would otherwise be a <a href="https://docs.python.org/3/library/stdtypes.html#binary-sequence-types-bytes-bytearray-memoryview"><code>bytes</code> object</a> into a string.</p>
+<p>You’ll note that Lines 14–16 handle the conversion of a few special characters: æ, ß, and ø. I learned by running tests that those are some of the letters the <code>normalize/decode</code> system doesn’t convert to reasonable ASCII. Even though I couldn’t imagine myself using any of these letters—or any of the myriad of other letters that don’t get converted by <code>normalize/decode</code>, it bothered me that I was rewriting <code>slugify</code> yet again and still didn’t have a way of handling lots of non-ASCII characters.</p>
+<p>I decided it was time to swallow my pride and look for a slugifying function written by someone who was willing to put in the time to do a complete job.</p>
+<p>The answer was the aptly named <a href="https://github.com/un33k/python-slugify"><code>python-slugify</code> module</a> by AvidCoderr, which has its own <code>slugify</code> function with many optional parameters. I learned that the defaults work for me. This code</p>
+<pre><code>python:
+1:  from slugify import slugify
+2:  
+3:  print(slugify("Hél_lo—yøü don’t wånt “25–30%,” do you, Mr. Encyclopædia?"))
+</code></pre>
+<p>returns</p>
+<pre><code>hel-lo-you-dont-want-25-30-do-you-mr-encyclopaedia
+</code></pre>
+<p>which is just what I want.</p>
+<p>A lot of this <code>slugify</code>’s power comes from its use of Tomaž Šolc’s <a href="https://github.com/avian2/unidecode"><code>unidecode</code> module</a>, which does the conversion to ASCII in a way that’s much more complete than the <code>normalize/decode</code> method.</p>
+<p>So now my publishing code doesn’t have its own <code>slugify</code> function, it just imports AvidCoderr’s and calls it. Kind of anticlimactic, but it works better.</p>
+<p>One more nice thing about the <code>slugify</code> module. When you install it—which I did via <code>conda install python-slugify</code> because I use <a href="https://anaconda.org/">Anaconda</a> to manage Python and its libraries—it comes with a command-line program also called <code>slugify</code>, which lets you test things out in the Terminal. You don’t even have to wrap the string you want to slugify in quotes:</p>
+<pre><code>slugify Hél_lo—yøü don’t wånt “25–30%,” do you, Mr. Encyclopædia?
+</code></pre>
+<p>returns</p>
+<pre><code>hel-lo-you-dont-want-25-30-do-you-mr-encyclopaedia
+</code></pre>
+<p>Note that if the string you’re converting includes characters that are special to the shell, you <em>will</em> have to wrap it in single quotes.</p>
+<pre><code>slugify '$PATH'
+</code></pre>
+<p>returns</p>
+<pre><code>path
+</code></pre>
+<p>but</p>
+<pre><code>slugify $PATH   
+</code></pre>
+<p>returns a very long string that you probably don’t want in your URL.</p>

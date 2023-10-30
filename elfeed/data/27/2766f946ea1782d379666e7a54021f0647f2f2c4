@@ -1,0 +1,16 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/actually_empty_desktop-800x481.png" alt="The Ubuntu 23.10 desktop, working just fine before you start messing with it.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/actually_empty_desktop.png" class="enlarge-link" data-height="978" data-width="1626">Enlarge</a> <span class="sep">/</span> The Ubuntu 23.10 desktop, working just fine before you start messing with it. </p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p><a href="https://ubuntu.com/blog/ubuntu-desktop-23-10-mantic-minotaur-deep-dive">Ubuntu 23.10</a>, codenamed Mantic Minotaur, is the <a href="https://discourse.ubuntu.com/t/mantic-minotaur-release-notes/35534">39th Ubuntu release</a>, and it's one of the three smaller interim releases Canonical puts out between long-term support (LTS) versions. This last interim before the next LTS doesn't stand out with bold features you can identify at a glance. But it does set up some useful options and upgrades that should persist in Ubuntu for some time.</p>
+<div class="image shortcode-img center full"><img alt='Your new installation options in Ubuntu 23.10. Neither of them is "Minimal," but that might be coming.' src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/default_installation-1.png"><p class="caption" style="font-size:0.8em">Your new installation options in Ubuntu 23.10. Neither of them is "Minimal," but that might be coming. </p></div>
+<h2>Slimmed down and Flutter-ed up</h2>
+<p>Two of the biggest changes in Ubuntu 23.10 are in the installer. Ubuntu now defaults to a "Default installation," which is quite different from what the "default" was even just one release prior. "Default" is described as "Just the essentials, web browser, and basic utilities," while "Full" is "An offline-friendly selection of office tools, utilities, web browser, and games." "Default" is somewhat similar to what "Minimal" used to be in prior versions, while "Full" is intended for those who are offline or have slow connections or just want as many options as possible right away.</p>
+<p>At the moment, most people won't be saving much, assuming they install off an ISO file. The ISO for Ubuntu 23.10 is 4.6GB, which is smaller than the 4.9GB ISO of Ubuntu 23.04, but not drastically so. This may change, however; Ubuntu staffers note that they have <a href="https://discourse.ubuntu.com/t/thank-you-for-the-passionate-discussion-an-update-on-installation-options-and-provisioning-overhaul/38397">bigger plans for provisioning and install options</a>, which may make it into 24.04. For now, it's a way to avoid clutter in your app search, at least, if not your disk overall.</p></div><p><a href="https://arstechnica.com/?p=1975687#p3">Read 9 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1975687&comments=1">Comments</a></p>

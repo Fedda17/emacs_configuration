@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2021/07/scam-website-800x534.jpeg" alt="Thousands of WordPress sites have been hacked through tagDiv plugin vulnerability">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2021/07/scam-website.jpeg" class="enlarge-link" data-height="667" data-width="1000">Enlarge</a> (credit: <a rel="nofollow" class="caption-link" href="https://www.gettyimages.com/">Getty Images</a>)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Thousands of sites running the WordPress content management system have been hacked by a prolific threat actor that exploited a recently patched vulnerability in a widely used plugin.</p>
+<p>The vulnerable plugin, known as tagDiv Composer, is a mandatory requirement for using two WordPress themes: <a href="https://themeforest.net/item/newspaper/5489609">Newspaper</a> and <a href="https://themeforest.net/item/newsmag-news-magazine-newspaper/9512331">Newsmag</a>. The themes are available through the Theme Forest and Envato marketplaces and have more than 155,000 downloads.</p>
+<p>Tracked as CVE-2023-3169, the vulnerability is what’s known as a cross-site scripting (XSS) flaw that allows hackers to inject malicious code into webpages. Discovered by Vietnamese researcher <a href="https://www.wordfence.com/threat-intel/vulnerabilities/researchers/truoc-phan">Truoc Phan</a>, the vulnerability carries a severity rating of 7.1 out of a possible 10. It was partially fixed in tagDiv Composer version 4.1 and fully patched in 4.2.</p></div><p><a href="https://arstechnica.com/?p=1974522#p3">Read 8 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1974522&comments=1">Comments</a></p>

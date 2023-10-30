@@ -1,0 +1,6 @@
+
+<p>This is a Goodreads + Libby app integration which shows you the library availability for each of the books on your Goodreads want to read list.<p>Basically, I got sick of manually looking up each book on my Want to Read list on the Libby app to see if it was available or how long the wait was. So I made this site which easily gathers all that info for me.<p>At this point, I'm scraping Goodreads to figure out the "Want to Read" list. Libby provides a nice API though.<p>Any feedback is appreciated!! I also have a substack that I'm going to use to post updates, so follow along there if you're interested :) projecttbr.substack.com</p>
+<hr>
+<p>Comments URL: <a href="https://news.ycombinator.com/item?id=37850205">https://news.ycombinator.com/item?id=37850205</a></p>
+<p>Points: 158</p>
+<p># Comments: 35</p>

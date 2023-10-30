@@ -1,0 +1,105 @@
+* Blogs :elfeed:
+** Economics :economics:
+*** [[https://www.noahpinion.blog/feed][noah_says]]
+*** [[https://wheresyoured.at/feed][ed]]
+*** [[https://shatterzone.substack.com/feed][robert_evans]]
+** CS :computer-science:
+*** https://leancrew.com/all-this/feed/
+** Tokusatsu :tokusatsu:
+*** [[https://news.tokunation.com/feed][tokunation]]
+** Twitter :twitter:
+*** Animation_Culture :anime_culture_twt:
+**** [[https://nitter.rawbit.ninja/masaakiyuasa/rss][masaaki_yuasa]]
+**** [[https://nitter.rawbit.ninja/catsuka/rss][catsuka]]
+**** [[https://tsukinomayu.com/feed][feez]]
+**** [[https://nitter.rawbit.ninja/Richmond_Lee/rss][richmond_says]]
+**** [[https://nitter.rawbit.ninja/Goge6_/rss][goge]]
+**** [[https://nitter.rawbit.ninja/seijikanoh/rss][seijikanoh]]
+**** [[https://nitter.rawbit.ninja/ikemoto06/rss][ikemoto]]
+**** [[https://nitter.rawbit.ninja/animesama/rss][animesama]]
+*** Toku_news :toku_news_twt:
+**** [[https://nitter.rawbit.ninja/bmVbLSkqVgjCi4Q/rss][GANJIN]]
+**** [[https://nitter.rawbit.ninja/Shin_KR/rss][Shin_KR]]
+**** [[https://nitter.rawbit.ninja/keitaamemiya01/rss][Amemiya]]
+**** [[https://nitter.rawbit.ninja/YOKKI_munchkin_/rss][Yokki]]
+**** [[https://nitter.rawbit.ninja/tsuburayaprod/rss][Tsupro]]
+**** [[https://nitter.rawbit.ninja/neiger_akita/rss][neiger]]
+**** [[https://nitter.rawbit.ninja/Sin_QQQ_01/rss][Sinq]]
+**** [[https://nitter.rawbit.ninja/ultraman_series/rss][ultranews]]
+**** [[https://nitter.rawbit.ninja/AndroMEGA18/rss][AndroMega]]
+**** [[https://nitter.rawbit.ninja/Tokusatsu_DNA/rss][tokudna]]
+**** [[https://nitter.rawbit.ninja/tokuken20091/rss][tokuken]]
+**** [[https://nitter.rawbit.ninja/redol_0H0w0M0/rss][redol]]
+**** [[https://nitter.rawbit.ninja/takami77986063/rss][takami]]
+**** [[https://nitter.rawbit.ninja/As70HmOoM77vhBv/rss][OOhashi_akira]]
+**** [[https://nitter.rawbit.ninja/roko_sakurai/rss][RokoSakurai]]
+**** [[https://nitter.rawbit.ninja/ultraman_series/rss][ulranews2]]
+**** [[https://nitter.rawbit.ninja/kashiwazaki1218/rss][Hiroshi]]
+**** [[https://nitter.rawbit.ninja/ryofujii2000/rss][taromancreator]]
+**** [[https://nitter.rawbit.ninja/murasakikuma41/rss][murasakikuma]]
+**** [[https://nitter.rawbit.ninja/ExpressKyoudai/rss][ExpressKyoudai]]
+**** [[https:/nitter.rawbit.ninja/MiikeTmkaa/rss][Toshio_Miike]]
+**** [[https://nitter.rawbit.ninja/gekiko_superior/rss][Takayuki_Yamaguchi]]
+*** TTAD :TTAD_twt:
+**** [[https://nitter.rawbit.ninja/Robwilliams71/rss][robwilliams]]
+**** [[https://nitter.rawbit.ninja/PyeParr/rss][pyeparr]]
+**** [[https://nitter.rawbit.ninja/henryflintZ/rss][HenryFlint]]
+**** [[https://nitter.rawbit.ninja/ArtDroid_Lynch/rss][ArtDroid_Lynch]]
+**** [[https://nitter.rawbit.ninja/dancornwellart/rss][dancornwellart]]
+**** [[https://nitter.rawbit.ninja/MrLeeCarter/rss][MrLeeCarter]]
+**** [[https://nitter.rawbit.ninja/robbiegmorrison/rss][robbiegmorrison]]
+*** MangaTwit :mangastwt:
+**** [[https://nitter.rawbit.ninja/yashiro_manabu/rss][yasmanabu]]
+**** [[https://nitter.rawbit.ninja/tatsumimimi/rss][tatsumimi]]
+**** [[https://nitter.rawbit.ninja/kaiikarashi/rss][kaiikarashi]]
+**** [[https://nitter.rawbit.ninja/RYUKOyoshimizu/rss][RYUKOyoshimizu]]
+*** Sculptwit :sculptors:
+**** [[https://nitter.rawbit.ninja/R1_Chung/rss][@R1_Chung]]
+**** [[https://nitter.rawbit.ninja/nabehands/rss][@nabehands]]
+**** [[https://nitter.rawbit.ninja/keisukeyoneyama/rss][@keisukeyoneyama]]
+**** [[https://nitter.rawbit.ninja/SUSUKI_Garage/rss][@SUSUKI_Garage]]
+**** [[https://nitter.rawbit.ninja/Flying5188/rss][@Flying5188]]
+**** [[https://nitter.rawbit.ninja/SpiderzeroSimon/rss][@SpiderzeroSimon]]
+**** [[https://nitter.rawbit.ninja/Kevin__Cassidy/rss][@Kevin__Cassidy]]
+**** [[https://nitter.rawbit.ninja/zhomo11/rss][@zhomo11]]
+**** [[https://nitter.rawbit.ninja/tnn_scaltinof/rss][@tnn_scaltinof]]
+**** [[https://nitter.rawbit.ninja/AVENGERSvsALIEN/rss][@AVENGERSvsALIEN]]
+**** [[https://nitter.rawbit.ninja/sazenlee/rss][@sazenlee]]
+**** [[https://nitter.rawbit.ninja/taihei3/rss][@taihei3]]
+**** [[https://nitter.rawbit.ninja/Tom510h312k/rss][@Tom510h312k]]
+**** [[https://nitter.rawbit.ninja/kawazakana_a/rss][@kawazakana_a]]
+**** [[https://nitter.rawbit.ninja/tnn_scaltinof/rss][@tnn_scaltinof]]
+**** [[https://nitter.rawbit.ninja/avenger_ken/rss][@avenger_ken]]
+**** [[https://nitter.rawbit.ninja/hiyocoman01/rss][@hiyocoman01]]
+**** [[https://nitter.rawbit.ninja/M_Live733/rss][@M_Live733]]
+**** [[https://nitter.rawbit.ninja/1972_ver/rss][1972]]
+**** [[https://nitter.rawbit.ninja/runplaride/rss][runplaride]]
+**** [[https://nitter.rawbit.ninja/MasakiSe/rss][MasakiSe]]
+*** Art :art_twt:
+**** [[https://nitter.rawbit.ninja/bluemeteorite/rss][bluemeteor]]
+**** [[https://nitter.rawbit.ninja/alvinfai529/rss][alvin]]
+**** [[https://nitter.rawbit.ninja/Kosan_Takeuchi/rss][Kosan_Takeuchi]]
+**** [[https://nitter.rawbit.ninja/yujikaneko/rss][YujiKaneko]]
+**** [[https://nitter.rawbit.ninja/MattVinnie/rss][MattVince]]
+**** [[https://nitter.rawbit.ninja/CoolBoxArt/rss][CoolBoxArt]]
+**** [[https://nitter.rawbit.ninja/shimayamas59963/rss][Shimayama]]
+**** [[https://nitter.rawbit.ninja/DesigningFilm/rss][DF]]
+**** [[https://nitter.rawbit.ninja/MonyPich2/rss][MonyPich2]]
+**** [[https://nitter.privacydev.net/Dark_skiinmode/rss][skiinmode]]
+**** [[https://nitter.privacydev.net/LewdDemonDude/rss][lewddemon]]
+**** [[https://nitter.privacydev.net/siku199/rss][siku]]
+**** https://nitter.rawbit.ninja/aa6464/rss
+**** https://monypich.tumblr.com/rss
+**** https://zodar.tumblr.com/rss
+**** https://www.bikeexif.com/rss
+** News :news:
+*** https://www.reutersagency.com/feed/?taxonomy=best-topics
+*** https://www.liberioltreleillusioni.it/rss.xml
+*** https://www.reutersagency.com/feed/?taxonomy=best-topics&post_type=best
+** Hackernews :hnews:
+*** https://hnrss.org/frontpage
+*** https://www.zdnet.com/rss.xml
+*** https://arstechnica.com/rss
+** Reddit :reddit:
+*** [[https://www.reddit.com/r/UpliftingNews/.rss][uplifting_news]]
+*** [[https://www.reddit.com/r/europe/.rss][europe_news]]

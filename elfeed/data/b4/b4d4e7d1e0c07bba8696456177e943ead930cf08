@@ -1,0 +1,14 @@
+<div id="rss-wrap">
+<figure class="intro-image intro-left">
+  <img src="https://cdn.arstechnica.net/wp-content/uploads/2023/10/cs2-800x450.jpg" alt="The red eyes represent the mark of VAC for Anti-Lag+ players.">
+      <p class="caption" style="font-size:0.8em"><a href="https://cdn.arstechnica.net/wp-content/uploads/2023/10/cs2.jpg" class="enlarge-link" data-height="1080" data-width="1920">Enlarge</a> <span class="sep">/</span> The red eyes represent the mark of VAC for Anti-Lag+ players. (credit: Valve)</p>  </figure>
+
+
+
+
+
+
+<div><a name="page-1"></a></div>
+<p>Valve has announced that it will begin reversing bans incurred by <em>Counter-Strike 2</em> players that used an AMD "Anti-Lag+" driver, which started setting off the Valve Anti-Cheat (VAC) system earlier this month.</p>
+<p>AMD took down version 23.10.1 of its AMD Adrenalin Edition graphics driver <a href="https://web.archive.org/web/20231011201543/https://www.amd.com/en/support/kb/release-notes/rn-rad-win-23-10-1">shortly after its October 11 launch</a>, following reports that Valve was banning <em>Counter-Strike 2</em> players that used the driver's Anti-Lag+ Technology.</p>
+<p>"AMD's latest driver has made their 'Anti-Lag/+' feature available for <em>CS2</em>, which is implemented by detouring engine dll functions," Valve <a href="https://twitter.com/CounterStrike/status/1712875606776729832">wrote on social media</a> on October 13. "If you are an AMD customer and play <em>CS2</em>, DO NOT ENABLE ANTI-LAG/+; any tampering with CS code will result in a VAC ban."</p></div><p><a href="https://arstechnica.com/?p=1976235#p3">Read 9 remaining paragraphs</a> | <a href="https://arstechnica.com/?p=1976235&comments=1">Comments</a></p>

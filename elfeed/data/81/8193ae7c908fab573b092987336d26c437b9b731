@@ -1,0 +1,107 @@
+<p>A couple of days ago, Numberphile posted another Tom Crawford video in which he presents an interesting problem and explains it in an unnecessarily complicated way. This time, it’s the <a href="https://en.wikipedia.org/wiki/Sleeping_Beauty_problem">Sleeping Beauty problem</a>.</p>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/cW27QJYNXtU" title="YouTube video player" width="560"></iframe>
+<p>Here’s the problem as posed in the Wikipedia article:</p>
+<blockquote>
+<p>Sleeping Beauty volunteers to undergo the following experiment and is told all of the following details: On Sunday she will be put to sleep. Once or twice, during the experiment, Sleeping Beauty will be awakened, interviewed, and put back to sleep with an amnesia-inducing drug that makes her forget that awakening. A fair coin will be tossed to determine which experimental procedure to undertake:</p>
+<ul>
+<li>If the coin comes up heads, Sleeping Beauty will be awakened and interviewed on Monday only.</li>
+<li>If the coin comes up tails, she will be awakened and interviewed on Monday and Tuesday.</li>
+</ul>
+<p>In either case, she will be awakened on Wednesday without interview and the experiment ends.</p>
+<p>Any time Sleeping Beauty is awakened and interviewed she will not be able to tell which day it is or whether she has been awakened before. During the interview Sleeping Beauty is asked: “What is your degree of belief<sup id="fnref:credence"><a href="#fn:credence" rel="footnote">1</a></sup> now for the proposition that the coin landed heads?”</p>
+</blockquote>
+<p>I don’t understand why the problem is typically described with Sleeping Beauty being given a drug to put her to sleep. Surely it would be more appropriate for it to be a magic spell.</p>
+<p>The first thing I don’t like about Tom’s presentation is how he poses the question asked of Sleeping Beauty: What is the probability that the coin was a head?</p>
+<p><img alt="Sleeping Beauty question frame" class="ss" src="https://leancrew.com/all-this/images2023/20230819-Sleeping%20Beauty%20question%20frame.png" title="Sleeping Beauty question frame" width="80%"/></p>
+<p>Asking about the probability instead of the degree of belief suggests an objectivity that shouldn’t be there. <em>What is the probablity</em> connotes a sort of omniscience that doesn’t belong in the question. That’s certainly one of the reasons Brady thinks at one point that the answer should be ½—a fair coin was flipped, and its probability of landing heads isn’t affected by any of the other bits of the story.</p>
+<p>But when the question is posed in terms of <em>degree of belief</em>, and we remember that it’s Sleeping Beauty’s degree of belief each time she is awakened, we start thinking about the problem differently. This is what leads to the longish section in the middle of the video in which Tom goes through various assumptions and conditional probabilities to get to the “thirder” answer. And this is the part that I think can be made shorter and clearer.</p>
+<p>First, let’s think about what <a href="https://en.wikipedia.org/wiki/Credence_(statistics)">degree of belief</a> is. It is an expression of the odds that would be given in a fair wager. In this case, we recast the problem as Sleeping Beauty being offered a bet—heads or tails—by the experimenter each time she’s awakened. We can start by considering which way she should bet if she’s offered 1:1 odds and then move on to determining what odds would be fair to both her and the experimenter.</p>
+<p>Because it’s a fair coin, half the time it will land on heads and there will be one wager. The other half of the time it will land on tails and there will be two wagers. If Sleeping Beauty bets on tails, she will, on average, lose one bet half the time and win two bets half the time. If we say the bet is $10, her expected return from betting on tails is</p>
+
+\[\frac{1}{2} (-\$10) + \frac{1}{2} (2 \times \$10) = \$5\]
+
+<p>The experimenter would have to be an idiot to make this bet with even odds. The fair way is for the person who bets on tails to put up $20 and the person who bets on heads to put up $10. That way the expected return for the tails-bettor is</p>
+
+\[\frac{1}{2} (-\$20) + \frac{1}{2} (2 \times \$10) = $0\]
+
+<p>and the expected return for the heads-bettor is the same:</p>
+
+\[\frac{1}{2} (\$20) + \frac{1}{2} (2 \times -\$10) = $0\]
+
+<p>The 2:1 odds make the bet fair.</p>
+<p>Because 2:1 odds is the same as “two out of three,” Sleeping Beauty’s degree of belief in tails is ⅔. Conversely, her degree of belief in heads is ⅓.</p>
+<p>Note that it’s the disparity in the number of wagers (or questions, if we go back to the original problem statement) that makes the degrees of belief differ from ½. If we change the problem slightly and say that there will be <em>one</em> question, regardless of the outcome of the coin toss (if it’s tails we could do another coin toss to decide whether the question is asked on Monday or Tuesday), then there will be no disparity in wagers and even odds would be fair. It’s possible that this misinterpretation of the problem—that the question is asked once per experiment rather than once per awakening—is what leads some people to think that Sleeping Beauty’s degree of belief should be ½.</p>
+<p>Another way for the degree of belief to be ½ would be if the wager is made not in the middle of the experiment, but either before it on Sunday or after it on Wednesday. In both of these cases, 1:1 odds would be fair.</p>
+<p>We can also run simulations of the problem to give us insight into the answer. Here’s a short Python program that simulates both the one-question-per-awakening problem and the one-question-per-experiment problem:</p>
+<pre><code>python:
+ 1:  #!/usr/bin/env python3
+ 2:  
+ 3:  from collections import defaultdict
+ 4:  from random import choice
+ 5:  
+ 6:  # Set up the problem
+ 7:  sides = 'Heads Tails'.split()
+ 8:  days = 'Monday Tuesday'.split()
+ 9:  qdays = {'Heads': ['Monday'], 'Tails': days}
+10:  
+11:  # Initialize the question matrix
+12:  q = defaultdict(int)
+13:  
+14:  # Run 10,000 experiments assuming the question is asked every day
+15:  for f in range(10000):
+16:    flip = choice(sides)
+17:    for day in qdays[flip]:
+18:      q[(flip, day)] += 1
+19:  
+20:  # Show the results
+21:  print('Question asked every awakening')
+22:  for s in sides:
+23:    for d in days:
+24:      print(f'{s} and {d}: {q[(s, d)]}')
+25:  
+26:  print()
+27:  
+28:  # Reinitialize the question matrix
+29:  q = defaultdict(int)
+30:  
+31:  # Run 10,000 experiments assuming the question is asked once per experiment
+32:  for f in range(10000):
+33:    flip = choice(sides)
+34:    day = choice(qdays[flip])
+35:    q[(flip, day)] += 1
+36:  
+37:  # Show the results
+38:  print('Question asked once per experiment')
+39:  for s in sides:
+40:    for d in days:
+41:      print(f'{s} and {d}: {q[(s, d)]}')
+</code></pre>
+<p>In both cases, the <code>q</code> dictionary is being used to keep track of questions. The keys of <code>q</code> are tuples of the (initial) coin toss and the day, e.g., <code>('Tails', 'Monday')</code>, and the values of <code>q</code> are the number of questions asked for each of those condition pairs. I’m using a <a href="https://docs.python.org/3/library/collections.html#collections.defaultdict"><code>defaultdict</code></a> for <code>q</code> to avoid having to initialize it, and the <code>choice</code> function from the <a href="https://docs.python.org/3/library/random.html"><code>random</code> module</a> to simulate the coin flips.</p>
+<p>Because the program uses random numbers and doesn’t specify a seed, it will give slightly different answers every time it’s run. Here’s the answer from one run,</p>
+<pre><code>Question asked every awakening
+Heads and Monday: 4969
+Heads and Tuesday: 0
+Tails and Monday: 5031
+Tails and Tuesday: 5031
+
+Question asked once per experiment
+Heads and Monday: 4905
+Heads and Tuesday: 0
+Tails and Monday: 2572
+Tails and Tuesday: 2523
+</code></pre>
+<p>which fits well with our previous answers.</p>
+<p>Simulations like this can give you confidence in the solutions you’ve come up with by other means. If you haven’t come up with a solution by other means, a simulation can lead you to the correct line of reasoning. Of course, your simulation code has to match the setup of the problem, which is often the tricky bit.</p>
+<p>As I was going through this problem, I couldn’t help but think about the Sleeping Beauty episode of <em>Fractured Fairy Tales</em>.</p>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/XFtcnD8kOmA" title="YouTube video player" width="560"></iframe>
+<p>The depiction of Walt Disney as a con man is probably not as wildly obvious now as it was in the early 60s, but even if you don’t know that <a href="https://en.wikipedia.org/wiki/Daws_Butler">Daws Butler</a> is recycling his <a href="https://en.wikipedia.org/wiki/Hokey_Wolf">Hokey Wolf</a>/<a href="https://en.wikipedia.org/wiki/Phil_Silvers">Sgt. Bilko</a> voice or that Disneyland used to have <a href="https://clickamericana.com/topics/family-parenting/life-for-kids/disneyland-attraction-tickets-a-b-c-d-e">lettered tickets</a> for different attractions, you still get the point.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn:credence">
+<p>The article actually uses <em>credence</em> instead of <em>degree of belief</em>, but I think the latter is easier to understand, especially for a character from the Middle Ages. <a href="#fnref:credence" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+<br />
+<p>[If there are equations in this post, you will see them rendered properly in <a href="https://leancrew.com/all-this/2023/08/sleeping-beauty-is-in-the-eye-of-the-beholder/">the original article</a>].</p>
